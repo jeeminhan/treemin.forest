@@ -71,7 +71,7 @@ function MonitorIcon() {
   );
 }
 
-const icons: Record<Theme, () => JSX.Element> = {
+const icons: Record<Theme, () => React.ReactElement> = {
   light: SunIcon,
   dark: MoonIcon,
   system: MonitorIcon,

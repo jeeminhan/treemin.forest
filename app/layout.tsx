@@ -28,8 +28,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  window,
 }: Readonly<{
   children: React.ReactNode;
+  window: React.ReactNode;
 }>) {
   return (
     <html
@@ -38,7 +40,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          {window}
+        </ThemeProvider>
       </body>
     </html>
   );
