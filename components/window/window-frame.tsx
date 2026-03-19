@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useRef } from 'react';
 
 type Props = {
   title: string;
@@ -12,6 +12,7 @@ type Props = {
 
 export function WindowFrame({ title, children, onClose, isOpen = true }: Props) {
   const [titleBarHovered, setTitleBarHovered] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleEscape = useCallback(
     (e: KeyboardEvent) => {
@@ -25,6 +26,15 @@ export function WindowFrame({ title, children, onClose, isOpen = true }: Props) 
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [handleEscape, isOpen]);
+
+  /* Move focus to the close button when the window opens */
+  useEffect(() => {
+    if (isOpen) {
+      // Small delay to allow the animation to start before focusing
+      const id = setTimeout(() => closeButtonRef.current?.focus(), 50);
+      return () => clearTimeout(id);
+    }
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -59,6 +69,7 @@ export function WindowFrame({ title, children, onClose, isOpen = true }: Props) 
               {/* Traffic lights */}
               <div className="flex gap-1.5 items-center">
                 <button
+                  ref={closeButtonRef}
                   onClick={onClose}
                   className="w-3 h-3 rounded-full transition-colors duration-150 hover:brightness-90"
                   style={{

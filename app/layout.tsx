@@ -40,6 +40,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#project-grid"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium"
+          style={{
+            background: 'var(--bg-elevated)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--border-default)',
+            boxShadow: 'var(--shadow-tile-hover)',
+          }}
+        >
+          Skip to projects
+        </a>
         <ThemeProvider>
           {children}
           {window}

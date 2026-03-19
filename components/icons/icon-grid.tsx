@@ -6,19 +6,26 @@ import { ProjectIcon } from './project-icon';
 
 const clusterOrder: Cluster[] = ['ai-language', 'ministry-community', 'ml-data', 'creative-play'];
 
+/** Sort projects by cluster order, then tier ascending for logical tab order */
+const sortedProjects = [...projects].sort((a, b) => {
+  const clusterDiff = clusterOrder.indexOf(a.cluster) - clusterOrder.indexOf(b.cluster);
+  if (clusterDiff !== 0) return clusterDiff;
+  return a.tier - b.tier;
+});
+
 export function IconGrid() {
   return (
     <>
       {/* Desktop 1280px+: full scatter */}
-      <div className="hidden 2xl:block absolute inset-0">
-        {projects.map((project, i) => (
+      <div id="project-grid" className="hidden 2xl:block absolute inset-0">
+        {sortedProjects.map((project, i) => (
           <ProjectIcon key={project.id} project={project} index={i} />
         ))}
       </div>
 
       {/* Laptop 1024-1279px: tightened scatter */}
       <div className="hidden xl:block 2xl:hidden absolute inset-0">
-        {projects.map((project, i) => (
+        {sortedProjects.map((project, i) => (
           <ProjectIcon
             key={project.id}
             project={{
@@ -44,11 +51,12 @@ export function IconGrid() {
               {clusters[clusterId].label}
             </h3>
             <div className="flex gap-6 overflow-x-auto pb-4">
-              {projects.filter(p => p.cluster === clusterId).map(project => (
+              {projects.filter(p => p.cluster === clusterId).sort((a, b) => a.tier - b.tier).map(project => (
                 <Link
                   key={project.id}
                   href={`/project/${project.id}`}
                   className="flex-shrink-0 flex flex-col items-center gap-1.5 w-20"
+                  aria-label={`Open ${project.name}`}
                 >
                   <div
                     className="w-14 h-14 rounded-xl border border-[var(--border-default)] bg-[var(--bg-surface)] overflow-hidden"
@@ -77,11 +85,12 @@ export function IconGrid() {
               {clusters[clusterId].label}
             </h3>
             <div className="space-y-1">
-              {projects.filter(p => p.cluster === clusterId).map(project => (
+              {projects.filter(p => p.cluster === clusterId).sort((a, b) => a.tier - b.tier).map(project => (
                 <Link
                   key={project.id}
                   href={`/project/${project.id}`}
                   className="flex items-center gap-3 w-full py-3 border-b border-[var(--border-default)]"
+                  aria-label={`Open ${project.name}`}
                 >
                   <div
                     className="w-10 h-10 rounded-lg border border-[var(--border-default)] bg-[var(--bg-surface)] overflow-hidden flex-shrink-0"
