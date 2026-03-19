@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ContactContent } from '@/components/pages/contact-content';
 
 export const metadata = {
   title: 'Contact — JEEMIN OS',
@@ -41,20 +42,7 @@ export default function ContactPage() {
           </span>
           <div className="w-[80px]" />
         </div>
-        <div className="p-6">
-          <h2
-            className="text-lg font-semibold mb-3"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}
-          >
-            Contact
-          </h2>
-          <p
-            className="text-[0.9375rem] leading-relaxed"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            Full content coming soon. This is a placeholder for the Contact page.
-          </p>
-        </div>
+        <ContactContent />
       </div>
     </div>
   );

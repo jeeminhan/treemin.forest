@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AboutContent } from '@/components/pages/about-content';
 
 export const metadata = {
   title: 'About — JEEMIN OS',
@@ -41,20 +42,7 @@ export default function AboutPage() {
           </span>
           <div className="w-[80px]" />
         </div>
-        <div className="p-6">
-          <h2
-            className="text-lg font-semibold mb-3"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}
-          >
-            About Jeemin
-          </h2>
-          <p
-            className="text-[0.9375rem] leading-relaxed"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            Full content coming soon. This is a placeholder for the About page.
-          </p>
-        </div>
+        <AboutContent />
       </div>
     </div>
   );
