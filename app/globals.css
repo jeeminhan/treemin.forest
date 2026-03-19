@@ -114,6 +114,22 @@ html * {
   outline-offset: 2px;
 }
 
+/* Context menu animation */
+@keyframes context-menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-context-menu-in {
+  animation: context-menu-in 0.12s ease-out forwards;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
