@@ -130,6 +130,31 @@ html * {
   animation: context-menu-in 0.12s ease-out forwards;
 }
 
+/* Terminal cursor blink */
+@keyframes terminal-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Konami code debug outline */
+[data-debug="true"] * {
+  outline: 1px dotted var(--accent) !important;
+}
+
+/* Seasonal wallpaper variants */
+[data-season="spring"] {
+  --dot-pattern: #E8D4D0;
+}
+[data-season="autumn"] {
+  --dot-pattern: #DDD5C8;
+}
+[data-theme="dark"][data-season="spring"] {
+  --dot-pattern: #2D2523;
+}
+[data-theme="dark"][data-season="autumn"] {
+  --dot-pattern: #2D2A23;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
