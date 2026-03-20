@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Space_Mono, DM_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { SeasonSetter } from "@/components/theme/season-setter";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -53,6 +54,7 @@ export default function RootLayout({
           Skip to projects
         </a>
         <ThemeProvider>
+          <SeasonSetter />
           {children}
           {window}
         </ThemeProvider>
