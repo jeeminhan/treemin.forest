@@ -23,40 +23,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JEEMIN OS",
-  description: "Portfolio of Jeemin Han",
+  title: "Jeemin Han",
+  description: "Builder, learner, puzzle-solver. Portfolio of Jeemin Han.",
 };
 
 export default function RootLayout({
   children,
-  window,
 }: Readonly<{
   children: React.ReactNode;
-  window: React.ReactNode;
 }>) {
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${spaceMono.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${spaceMono.variable} ${jetbrainsMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <a
-          href="#project-grid"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium"
-          style={{
-            background: 'var(--bg-elevated)',
-            color: 'var(--text-primary)',
-            border: '1px solid var(--border-default)',
-            boxShadow: 'var(--shadow-tile-hover)',
-          }}
-        >
-          Skip to projects
-        </a>
+      <body>
         <ThemeProvider>
           <SeasonSetter />
           {children}
-          {window}
         </ThemeProvider>
       </body>
     </html>

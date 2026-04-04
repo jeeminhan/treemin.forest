@@ -3,52 +3,20 @@
 /* ===== Design Tokens ===== */
 
 :root {
-  /* Light Mode */
-  --bg-workspace: #F5F4F1;
+  --bg-workspace: #FAFAFA;
   --bg-surface: #FFFFFF;
-  --bg-surface-hover: #F0EFEC;
-  --bg-surface-active: #EAE9E5;
-  --bg-elevated: #FFFFFF;
-  --bg-dock: rgba(255, 255, 255, 0.72);
+  --bg-surface-hover: #F5F4F1;
   --text-primary: #1A1A1A;
   --text-secondary: #6B6B6B;
   --text-tertiary: #9E9E9E;
-  --accent: #E8A99A;
-  --accent-hover: #D99383;
-  --accent-subtle: rgba(245, 220, 215, 0.25);
+  --accent: #D4A0A0;
+  --accent-hover: #C48E8E;
+  --accent-subtle: rgba(212, 160, 160, 0.15);
   --border-default: #E5E4E1;
   --border-hover: #D4D3CF;
-  --border-focus: #E8A99A;
-  --border-window: #DCDBD7;
-  --dot-pattern: #DDDCD8;
-  --shadow-tile: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
-  --shadow-tile-hover: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
-  --shadow-window: 0 24px 80px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.06);
-  --shadow-dock: 0 -1px 0 rgba(0,0,0,0.04), 0 -8px 32px rgba(0,0,0,0.06);
-}
-
-[data-theme="dark"] {
-  --bg-workspace: #141413;
-  --bg-surface: #1E1E1C;
-  --bg-surface-hover: #272725;
-  --bg-surface-active: #2F2F2C;
-  --bg-elevated: #222220;
-  --bg-dock: rgba(30, 30, 28, 0.80);
-  --text-primary: #EDEDEC;
-  --text-secondary: #8A8A86;
-  --text-tertiary: #5C5C58;
-  --accent: #F5DCD7;
-  --accent-hover: #E8C8C2;
-  --accent-subtle: rgba(245, 220, 215, 0.15);
-  --border-default: #2A2A27;
-  --border-hover: #3A3A36;
-  --border-focus: #F5DCD7;
-  --border-window: #333330;
-  --dot-pattern: #2A2A27;
-  --shadow-tile: 0 1px 3px rgba(0,0,0,0.20), 0 1px 2px rgba(0,0,0,0.12);
-  --shadow-tile-hover: 0 8px 24px rgba(0,0,0,0.30), 0 2px 6px rgba(0,0,0,0.16);
-  --shadow-window: 0 24px 80px rgba(0,0,0,0.50), 0 8px 24px rgba(0,0,0,0.30);
-  --shadow-dock: 0 -1px 0 rgba(0,0,0,0.20), 0 -8px 32px rgba(0,0,0,0.24);
+  --tree-line: #1A1A1A;
+  --panel-bg: rgba(255, 255, 255, 0.95);
+  --panel-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
 }
 
 /* ===== Tailwind v4 Theme Extension ===== */
@@ -57,9 +25,6 @@
   --color-bg-workspace: var(--bg-workspace);
   --color-bg-surface: var(--bg-surface);
   --color-bg-surface-hover: var(--bg-surface-hover);
-  --color-bg-surface-active: var(--bg-surface-active);
-  --color-bg-elevated: var(--bg-elevated);
-  --color-bg-dock: var(--bg-dock);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
@@ -68,13 +33,6 @@
   --color-accent-subtle: var(--accent-subtle);
   --color-border-default: var(--border-default);
   --color-border-hover: var(--border-hover);
-  --color-border-focus: var(--border-focus);
-  --color-border-window: var(--border-window);
-  --color-dot-pattern: var(--dot-pattern);
-  --shadow-tile: var(--shadow-tile);
-  --shadow-tile-hover: var(--shadow-tile-hover);
-  --shadow-window: var(--shadow-window);
-  --shadow-dock: var(--shadow-dock);
   --font-body: var(--font-body);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
@@ -86,73 +44,12 @@ body {
   background-color: var(--bg-workspace);
   color: var(--text-primary);
   font-family: var(--font-body);
-  background-image: radial-gradient(circle, var(--dot-pattern) 0.75px, transparent 0.75px);
-  background-size: 24px 24px;
-}
-
-/* Subtle vignette overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 40%, transparent 0%, transparent 50%, rgba(0,0,0,0.03) 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-[data-theme="dark"] body::before {
-  background: radial-gradient(ellipse at 50% 40%, transparent 0%, transparent 40%, rgba(0,0,0,0.15) 100%);
-}
-
-/* Theme transition */
-html * {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Focus visible */
 :focus-visible {
-  outline: 2px solid var(--border-focus);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-
-/* Context menu animation */
-@keyframes context-menu-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-context-menu-in {
-  animation: context-menu-in 0.12s ease-out forwards;
-}
-
-/* Terminal cursor blink */
-@keyframes terminal-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Konami code debug outline */
-[data-debug="true"] * {
-  outline: 1px dotted var(--accent) !important;
-}
-
-/* Seasonal wallpaper variants */
-[data-season="spring"] {
-  --dot-pattern: #E8D4D0;
-}
-[data-season="autumn"] {
-  --dot-pattern: #DDD5C8;
-}
-[data-theme="dark"][data-season="spring"] {
-  --dot-pattern: #2D2523;
-}
-[data-theme="dark"][data-season="autumn"] {
-  --dot-pattern: #2D2A23;
 }
 
 /* Reduced motion */
@@ -162,4 +59,41 @@ html * {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ===== Tree node hover effect ===== */
+svg g[role="button"]:hover circle {
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+/* ===== Sakura / Particle Animations ===== */
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(110vh) translateX(80px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petal-sway {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+/* ===== Line clamp utility ===== */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
