@@ -3,6 +3,7 @@ import { Roots } from '@/components/tree/roots';
 import { Particles } from '@/components/tree/particles';
 import { AboutSection } from '@/components/sections/about-section';
 import { ResumeSection } from '@/components/sections/resume-section';
+import { MinistrySection } from '@/components/sections/ministry-section';
 import { CreativeSection } from '@/components/sections/creative-section';
 import { ContactSection } from '@/components/sections/contact-section';
 
@@ -48,6 +49,7 @@ export default function Home() {
       <div className="relative z-1">
         <AboutSection />
         <ResumeSection />
+        <MinistrySection />
         <CreativeSection />
         <ContactSection />
       </div>
