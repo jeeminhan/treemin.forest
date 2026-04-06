@@ -12,13 +12,14 @@ const ministryProjects = projects
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [expanded, setExpanded] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
   const previewUrl = project.liveUrl || project.githubUrl;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="rounded-xl overflow-hidden"
       style={{
@@ -26,31 +27,87 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         border: '1px solid var(--border-default)',
       }}
     >
-      {/* Auto-visible iframe preview */}
+      {/* Iframe preview — auto-visible on desktop, tap-to-load on mobile */}
       {previewUrl && (
-        <div
-          className="relative w-full overflow-hidden"
-          style={{ background: '#f8f8f8' }}
-        >
-          <iframe
-            src={previewUrl}
-            title={`Preview of ${project.displayName}`}
-            className="w-full border-none"
-            style={{ height: 280 }}
-            sandbox="allow-scripts allow-same-origin"
-            loading="lazy"
-          />
+        <>
+          {/* Desktop: always show iframe */}
           <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to bottom, transparent 70%, var(--bg-surface) 100%)',
-            }}
-          />
-        </div>
+            className="relative w-full overflow-hidden hidden sm:block"
+            style={{ background: '#f8f8f8' }}
+          >
+            <iframe
+              src={previewUrl}
+              title={`Preview of ${project.displayName}`}
+              className="w-full border-none"
+              style={{ height: 280 }}
+              sandbox="allow-scripts allow-same-origin"
+              loading="lazy"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(to bottom, transparent 70%, var(--bg-surface) 100%)',
+              }}
+            />
+          </div>
+
+          {/* Mobile: tap to load iframe (saves data & performance) */}
+          <div className="sm:hidden">
+            {showPreview ? (
+              <div className="relative w-full overflow-hidden" style={{ background: '#f8f8f8' }}>
+                <iframe
+                  src={previewUrl}
+                  title={`Preview of ${project.displayName}`}
+                  className="w-full border-none"
+                  style={{ height: 200 }}
+                  sandbox="allow-scripts allow-same-origin"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to bottom, transparent 70%, var(--bg-surface) 100%)',
+                  }}
+                />
+                <button
+                  onClick={() => setShowPreview(false)}
+                  className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full text-xs"
+                  style={{
+                    background: 'var(--panel-bg)',
+                    color: 'var(--text-tertiary)',
+                    backdropFilter: 'blur(8px)',
+                  }}
+                  aria-label="Close preview"
+                >
+                  ✕
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowPreview(true)}
+                className="w-full py-6 flex flex-col items-center gap-1.5 transition-colors active:opacity-70"
+                style={{ background: 'var(--accent-subtle)' }}
+              >
+                <span
+                  className="text-lg"
+                  style={{ color: 'var(--accent)' }}
+                >
+                  ▶
+                </span>
+                <span
+                  className="text-[0.625rem]"
+                  style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)' }}
+                >
+                  tap to preview
+                </span>
+              </button>
+            )}
+          </div>
+        </>
       )}
 
       {/* Project info */}
-      <div className="px-5 pb-5 pt-3">
+      <div className="px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
         <div className="flex items-start justify-between gap-2 mb-1.5">
           <h3
             className="text-sm font-semibold"
@@ -70,13 +127,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.description}
         </p>
 
-        {/* Tech stack */}
+        {/* Tech stack — horizontal scroll on mobile */}
         {project.techStack.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
+          <div className="flex flex-wrap gap-1 mb-3 max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:scrollbar-none">
             {project.techStack.map((t) => (
               <span
                 key={t}
-                className="inline-flex px-2 py-0.5 rounded-full"
+                className="inline-flex px-2 py-0.5 rounded-full shrink-0"
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.575rem',
@@ -105,15 +162,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </AnimatePresence>
 
-        {/* Actions row */}
+        {/* Actions row — bigger tap targets on mobile */}
         <div
-          className="flex items-center gap-3 text-[0.625rem]"
+          className="flex items-center gap-3 text-[0.625rem] max-sm:gap-4 max-sm:text-xs max-sm:py-1"
           style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)' }}
         >
           {project.story && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="hover:opacity-70 transition-opacity"
+              className="hover:opacity-70 active:opacity-50 transition-opacity"
               style={{ color: 'var(--accent)' }}
             >
               {expanded ? '— less' : '+ story'}
@@ -124,7 +181,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:opacity-70"
+              className="underline underline-offset-2 hover:opacity-70 active:opacity-50"
               style={{ color: 'var(--accent)' }}
             >
               Live ↗
@@ -135,7 +192,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:opacity-70"
+              className="underline underline-offset-2 hover:opacity-70 active:opacity-50"
               style={{ color: 'var(--accent)' }}
             >
               GitHub ↗
@@ -156,11 +213,11 @@ export function MinistrySection() {
       >
         Ministry & Community
       </h2>
-      <p className="text-sm leading-relaxed mb-8" style={{ color: 'var(--text-secondary)' }}>
+      <p className="text-sm leading-relaxed mb-6 sm:mb-8" style={{ color: 'var(--text-secondary)' }}>
         Tools built for people in ministry — reflection, accountability, journey mapping, and gospel storytelling.
       </p>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
         {ministryProjects.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}
