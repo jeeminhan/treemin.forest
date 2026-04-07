@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { TreeBranch } from './tree-branch';
 import { InlinePanel } from './inline-panel';
 import { HoverPreview } from './hover-preview';
+import { MobileTree } from './mobile-tree';
 import { computeTreeLayout, VIEWBOX_W, VIEWBOX_H } from '@/lib/tree-layout';
 import { projects } from '@/data/projects';
 import type { Project } from '@/data/projects';
@@ -50,10 +51,16 @@ export function Tree() {
 
   return (
     <div className="relative w-full" style={{ maxWidth: 900, margin: '0 auto' }}>
+      {/* Mobile: cluster-based horizontal scroll layout */}
+      <div className="sm:hidden">
+        <MobileTree />
+      </div>
+
+      {/* Desktop: SVG tree */}
       <svg
         ref={svgRef}
         viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
-        className="w-full h-auto"
+        className="hidden sm:block w-full h-auto"
         aria-label="Project tree — click a node to view project details"
         onClick={() => { if (selectedId) setSelectedId(null); }}
       >
