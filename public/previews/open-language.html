@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Language</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0c0a09;color:#fafaf9;font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{max-width:600px;width:100%;padding:3rem 2rem;text-align:center;position:relative}
+.year{display:inline-block;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#a8a29e;border:1px solid #292524;border-radius:999px;padding:.25rem .75rem;margin-bottom:2rem}
+h1{font-size:3rem;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,#34d399,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.sub{color:#a8a29e;font-size:1.1rem;margin-bottom:.5rem}
+.tag{color:#78716c;font-size:.9rem;margin-bottom:2rem;line-height:1.5}
+.visual{width:100%;height:120px;border-radius:12px;background:linear-gradient(135deg,#064e3b 0%,#0c4a6e 50%,#1e1b4b 100%);margin-bottom:2rem;position:relative;overflow:hidden}
+.visual::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(255,255,255,.03) 30px,rgba(255,255,255,.03) 31px),repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(255,255,255,.03) 20px,rgba(255,255,255,.03) 21px)}
+.visual::before{content:'A B C';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;font-weight:900;letter-spacing:.5em;color:rgba(255,255,255,.08)}
+.pills{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.pill{background:#1c1917;border:1px solid #292524;border-radius:999px;padding:.3rem .8rem;font-size:.75rem;color:#a8a29e}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="year">2026</div>
+  <h1>Open Language</h1>
+  <p class="sub">Language Learning Analysis</p>
+  <p class="tag">Level testing, progress tracking, and export tools<br>for structured language acquisition</p>
+  <div class="visual"></div>
+  <div class="pills">
+    <span class="pill">Python</span>
+    <span class="pill">Next.js</span>
+    <span class="pill">CLI</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<h2>How should the tree grow as you scroll?</h2>
+<p class="subtitle">The tree is the central navigation — how you scroll determines the whole feel</p>
+
+<div class="cards">
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px; display: flex; justify-content: center;">
+      <svg viewBox="0 0 300 400" width="260" height="340" style="margin: 0 auto;">
+        <!-- Ground -->
+        <rect x="0" y="360" width="300" height="40" rx="4" fill="#e8e0d4" opacity="0.3"/>
+        <!-- Roots -->
+        <path d="M150 360 Q120 390 80 395" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M150 360 Q180 385 220 392" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.5"/>
+        <text x="150" y="385" text-anchor="middle" font-size="10" fill="#999" font-family="system-ui">ROOTS: Education, Skills, Values</text>
+        <!-- Trunk -->
+        <line x1="150" y1="360" x2="150" y2="80" stroke="#8B7355" stroke-width="4" opacity="0.6"/>
+        <!-- Scroll arrow -->
+        <text x="270" y="200" text-anchor="middle" font-size="28" fill="#666">↑</text>
+        <text x="270" y="220" text-anchor="middle" font-size="9" fill="#999" font-family="system-ui">scroll</text>
+        <!-- Branch labels -->
+        <text x="40" y="70" font-size="9" fill="#666" font-family="system-ui">AI & Language</text>
+        <line x1="150" y1="100" x2="60" y2="60" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="55" cy="55" r="8" fill="#c4b5a0" opacity="0.4"/>
+
+        <text x="200" y="110" font-size="9" fill="#666" font-family="system-ui">Ministry</text>
+        <line x1="150" y1="140" x2="210" y2="100" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="215" cy="95" r="8" fill="#c4b5a0" opacity="0.4"/>
+
+        <text x="30" y="190" font-size="9" fill="#666" font-family="system-ui">ML & Data</text>
+        <line x1="150" y1="200" x2="60" y2="180" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="55" cy="175" r="8" fill="#c4b5a0" opacity="0.4"/>
+
+        <text x="200" y="250" font-size="9" fill="#666" font-family="system-ui">Creative</text>
+        <line x1="150" y1="260" x2="210" y2="240" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="215" cy="235" r="8" fill="#c4b5a0" opacity="0.4"/>
+
+        <!-- Nodes on branches -->
+        <circle cx="40" cy="45" r="5" fill="#a89880" opacity="0.3"/>
+        <circle cx="75" cy="65" r="5" fill="#a89880" opacity="0.3"/>
+        <circle cx="230" cy="85" r="5" fill="#a89880" opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>A. Bottom-up Growth</h3>
+      <p>Start at the <strong>roots</strong> (education, values). Scroll up through the trunk. Branches with projects appear as you climb. The crown at top is your identity/vision. <em>Feels like growing — your journey from foundations to where you are now.</em></p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px; display: flex; justify-content: center;">
+      <svg viewBox="0 0 300 400" width="260" height="340" style="margin: 0 auto;">
+        <!-- Identity at top -->
+        <text x="150" y="30" text-anchor="middle" font-size="11" fill="#666" font-family="system-ui" font-weight="600">Jeemin Han</text>
+        <text x="150" y="45" text-anchor="middle" font-size="9" fill="#999" font-family="system-ui">I see what things could be...</text>
+        <!-- Crown/canopy -->
+        <ellipse cx="150" cy="70" rx="80" ry="25" fill="#c4b5a0" opacity="0.15" stroke="#c4b5a0" stroke-width="1" opacity="0.3"/>
+        <!-- Trunk -->
+        <line x1="150" y1="95" x2="150" y2="320" stroke="#8B7355" stroke-width="4" opacity="0.6"/>
+        <!-- Scroll arrow -->
+        <text x="270" y="200" text-anchor="middle" font-size="28" fill="#666">↓</text>
+        <text x="270" y="220" text-anchor="middle" font-size="9" fill="#999" font-family="system-ui">scroll</text>
+        <!-- Branches going down -->
+        <text x="40" y="125" font-size="9" fill="#666" font-family="system-ui">AI & Language</text>
+        <line x1="150" y1="130" x2="60" y2="120" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="55" cy="115" r="8" fill="#c4b5a0" opacity="0.4"/>
+        <circle cx="40" cy="105" r="5" fill="#a89880" opacity="0.3"/>
+
+        <text x="200" y="175" font-size="9" fill="#666" font-family="system-ui">Ministry</text>
+        <line x1="150" y1="180" x2="210" y2="168" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="215" cy="163" r="8" fill="#c4b5a0" opacity="0.4"/>
+
+        <text x="30" y="240" font-size="9" fill="#666" font-family="system-ui">ML & Data</text>
+        <line x1="150" y1="240" x2="60" y2="230" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+        <circle cx="55" cy="225" r="8" fill="#c4b5a0" opacity="0.4"/>
+
+        <text x="200" y="290" font-size="9" fill="#666" font-family="system-ui">Creative</text>
+        <line x1="150" y1="290" x2="210" y2="280" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+
+        <!-- Roots at bottom -->
+        <rect x="0" y="320" width="300" height="80" rx="4" fill="#e8e0d4" opacity="0.15"/>
+        <path d="M150 320 Q120 350 80 360" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M150 320 Q180 345 220 355" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.5"/>
+        <text x="150" y="370" text-anchor="middle" font-size="10" fill="#999" font-family="system-ui">ROOTS: Education, Skills, Values</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>B. Top-down Discovery</h3>
+      <p>Start with your <strong>name and tagline</strong> at the crown. Scroll down through branches (projects). End at roots (foundations). <em>Feels like exploring — visitors discover your work first, then understand what grounds it.</em></p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px; display: flex; justify-content: center;">
+      <svg viewBox="0 0 300 400" width="260" height="340" style="margin: 0 auto;">
+        <!-- Identity centered -->
+        <text x="150" y="30" text-anchor="middle" font-size="11" fill="#666" font-family="system-ui" font-weight="600">Jeemin Han</text>
+        <!-- Trunk centered -->
+        <line x1="150" y1="50" x2="150" y2="180" stroke="#8B7355" stroke-width="4" opacity="0.6"/>
+        <!-- Branches spread outward -->
+        <!-- Left cluster -->
+        <line x1="150" y1="100" x2="40" y2="80" stroke="#8B7355" stroke-width="2.5" opacity="0.4"/>
+        <line x1="40" y1="80" x2="15" y2="60" stroke="#8B7355" stroke-width="1.5" opacity="0.3"/>
+        <line x1="40" y1="80" x2="25" y2="95" stroke="#8B7355" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="15" cy="58" r="6" fill="#c4b5a0" opacity="0.4"/>
+        <circle cx="25" cy="95" r="4" fill="#c4b5a0" opacity="0.3"/>
+        <circle cx="40" cy="78" r="8" fill="#c4b5a0" opacity="0.5"/>
+        <text x="40" y="115" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">AI & Language</text>
+
+        <!-- Right cluster -->
+        <line x1="150" y1="100" x2="260" y2="75" stroke="#8B7355" stroke-width="2.5" opacity="0.4"/>
+        <line x1="260" y1="75" x2="280" y2="55" stroke="#8B7355" stroke-width="1.5" opacity="0.3"/>
+        <line x1="260" y1="75" x2="275" y2="90" stroke="#8B7355" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="280" cy="53" r="6" fill="#c4b5a0" opacity="0.4"/>
+        <circle cx="275" cy="90" r="4" fill="#c4b5a0" opacity="0.3"/>
+        <circle cx="260" cy="73" r="8" fill="#c4b5a0" opacity="0.5"/>
+        <text x="260" y="108" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">Ministry</text>
+
+        <!-- Lower left -->
+        <line x1="150" y1="150" x2="50" y2="160" stroke="#8B7355" stroke-width="2.5" opacity="0.4"/>
+        <circle cx="50" cy="160" r="8" fill="#c4b5a0" opacity="0.5"/>
+        <circle cx="30" cy="175" r="5" fill="#c4b5a0" opacity="0.3"/>
+        <line x1="50" y1="160" x2="30" y2="175" stroke="#8B7355" stroke-width="1.5" opacity="0.3"/>
+        <text x="50" y="190" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">ML & Data</text>
+
+        <!-- Lower right -->
+        <line x1="150" y1="150" x2="250" y2="165" stroke="#8B7355" stroke-width="2.5" opacity="0.4"/>
+        <circle cx="250" cy="165" r="8" fill="#c4b5a0" opacity="0.5"/>
+        <text x="250" y="190" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">Creative</text>
+
+        <!-- Roots -->
+        <path d="M150 180 Q120 220 70 240" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.4"/>
+        <path d="M150 180 Q180 215 230 235" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.4"/>
+        <path d="M150 180 Q150 220 150 250" stroke="#8B7355" stroke-width="2" fill="none" opacity="0.4"/>
+        <text x="70" y="255" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">Education</text>
+        <text x="150" y="265" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">Skills</text>
+        <text x="230" y="250" font-size="8" fill="#999" font-family="system-ui" text-anchor="middle">Values</text>
+
+        <!-- Viewport hint -->
+        <rect x="0" y="290" width="300" height="110" rx="8" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="4"/>
+        <text x="150" y="330" text-anchor="middle" font-size="9" fill="#bbb" font-family="system-ui">Click a branch to zoom in</text>
+        <text x="150" y="345" text-anchor="middle" font-size="9" fill="#bbb" font-family="system-ui">Scroll reveals detail panels below</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>C. Full Tree + Scroll Panels</h3>
+      <p>The entire tree is visible in the <strong>hero viewport</strong>. Clicking a branch scrolls you to a detail section below. Branches animate/highlight on hover. <em>Feels like a map — see everything, then dive in.</em></p>
+    </div>
+  </div>
+</div>

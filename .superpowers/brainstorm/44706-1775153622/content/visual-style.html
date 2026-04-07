@@ -1,0 +1,153 @@
+<h2>What visual style for the tree?</h2>
+<p class="subtitle">Clean/geometric/futuristic Apple aesthetic — but which flavor?</p>
+
+<div class="cards">
+  <!-- Option A: Glass Botanical -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px; background: linear-gradient(135deg, #fafafa 0%, #f0ede8 100%); display: flex; justify-content: center;">
+      <svg viewBox="0 0 300 300" width="260" height="260">
+        <!-- Subtle grid -->
+        <defs>
+          <linearGradient id="trunkA" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1a1a1a" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#1a1a1a" stop-opacity="0.2"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Trunk - clean geometric line -->
+        <line x1="150" y1="280" x2="150" y2="60" stroke="url(#trunkA)" stroke-width="3"/>
+        <!-- Branches - precise angles -->
+        <line x1="150" y1="100" x2="60" y2="60" stroke="#1a1a1a" stroke-width="1.5" opacity="0.4"/>
+        <line x1="150" y1="100" x2="240" y2="55" stroke="#1a1a1a" stroke-width="1.5" opacity="0.4"/>
+        <line x1="150" y1="160" x2="55" y2="150" stroke="#1a1a1a" stroke-width="1.5" opacity="0.4"/>
+        <line x1="150" y1="160" x2="245" y2="155" stroke="#1a1a1a" stroke-width="1.5" opacity="0.4"/>
+        <!-- Nodes - frosted glass circles -->
+        <circle cx="60" cy="60" r="22" fill="white" fill-opacity="0.6" stroke="#1a1a1a" stroke-width="0.5"/>
+        <circle cx="60" cy="60" r="22" fill="white" fill-opacity="0.3" filter="url(#glow)"/>
+        <text x="60" y="64" text-anchor="middle" font-size="8" fill="#1a1a1a" font-family="system-ui" font-weight="500">shaberu</text>
+
+        <circle cx="240" cy="55" r="20" fill="white" fill-opacity="0.6" stroke="#1a1a1a" stroke-width="0.5"/>
+        <text x="240" y="59" text-anchor="middle" font-size="8" fill="#1a1a1a" font-family="system-ui" font-weight="500">halfway</text>
+
+        <circle cx="55" cy="150" r="18" fill="white" fill-opacity="0.6" stroke="#1a1a1a" stroke-width="0.5"/>
+        <text x="55" y="154" text-anchor="middle" font-size="7" fill="#1a1a1a" font-family="system-ui">MuSentiment</text>
+
+        <circle cx="245" cy="155" r="16" fill="white" fill-opacity="0.6" stroke="#1a1a1a" stroke-width="0.5"/>
+        <text x="245" y="159" text-anchor="middle" font-size="7" fill="#1a1a1a" font-family="system-ui">jazz</text>
+
+        <!-- Small leaf nodes -->
+        <circle cx="35" cy="40" r="8" fill="white" fill-opacity="0.4" stroke="#1a1a1a" stroke-width="0.3"/>
+        <circle cx="80" cy="42" r="8" fill="white" fill-opacity="0.4" stroke="#1a1a1a" stroke-width="0.3"/>
+        <line x1="60" y1="60" x2="35" y2="40" stroke="#1a1a1a" stroke-width="0.8" opacity="0.3"/>
+        <line x1="60" y1="60" x2="80" y2="42" stroke="#1a1a1a" stroke-width="0.8" opacity="0.3"/>
+
+        <!-- Roots -->
+        <path d="M150 280 Q120 295 85 298" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M150 280 Q180 293 215 296" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.2"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>A. Glass Botanical</h3>
+      <p>Frosted glass nodes on precise geometric branches. Off-white background, monochrome palette. Nodes glow subtly on hover. <strong>Apple product page meets botanical diagram.</strong> Sakura petals fall as translucent glass shards.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Neon Circuit Tree -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px; background: #0a0a0a; display: flex; justify-content: center;">
+      <svg viewBox="0 0 300 300" width="260" height="260">
+        <defs>
+          <filter id="neonGlow">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="trunkB" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <!-- Trunk -->
+        <line x1="150" y1="280" x2="150" y2="60" stroke="url(#trunkB)" stroke-width="2"/>
+        <!-- Branches - right angles like circuit traces -->
+        <polyline points="150,100 105,100 60,65" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <polyline points="150,100 195,100 240,60" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <polyline points="150,170 100,170 55,155" stroke="#34d399" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <polyline points="150,170 200,170 245,160" stroke="#f472b6" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <!-- Nodes -->
+        <circle cx="60" cy="65" r="20" fill="none" stroke="#60a5fa" stroke-width="1.5" filter="url(#neonGlow)"/>
+        <circle cx="60" cy="65" r="20" fill="#60a5fa" fill-opacity="0.08"/>
+        <text x="60" y="69" text-anchor="middle" font-size="8" fill="#60a5fa" font-family="monospace">shaberu</text>
+
+        <circle cx="240" cy="60" r="18" fill="none" stroke="#a78bfa" stroke-width="1.5" filter="url(#neonGlow)"/>
+        <circle cx="240" cy="60" r="18" fill="#a78bfa" fill-opacity="0.08"/>
+        <text x="240" y="64" text-anchor="middle" font-size="8" fill="#a78bfa" font-family="monospace">halfway</text>
+
+        <circle cx="55" cy="155" r="16" fill="none" stroke="#34d399" stroke-width="1.5"/>
+        <circle cx="55" cy="155" r="16" fill="#34d399" fill-opacity="0.08"/>
+        <text x="55" y="159" text-anchor="middle" font-size="7" fill="#34d399" font-family="monospace">MuSent</text>
+
+        <circle cx="245" cy="160" r="14" fill="none" stroke="#f472b6" stroke-width="1.5"/>
+        <circle cx="245" cy="160" r="14" fill="#f472b6" fill-opacity="0.08"/>
+        <text x="245" y="164" text-anchor="middle" font-size="7" fill="#f472b6" font-family="monospace">jazz</text>
+
+        <!-- Roots -->
+        <polyline points="150,280 150,290 90,298" stroke="#60a5fa" stroke-width="0.8" fill="none" opacity="0.2"/>
+        <polyline points="150,280 150,288 210,296" stroke="#60a5fa" stroke-width="0.8" fill="none" opacity="0.2"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>B. Neon Circuit Tree</h3>
+      <p>Dark background, neon-colored branches per cluster. Circuit-trace aesthetics with right-angle bends. Nodes pulse gently. <strong>Cyberpunk meets tree of life.</strong> Sakura petals glow as they fall. Each cluster has its own color.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Minimal Line Art -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px; background: #fafafa; display: flex; justify-content: center;">
+      <svg viewBox="0 0 300 300" width="260" height="260">
+        <!-- Trunk - single elegant line -->
+        <path d="M150 285 C150 250 148 200 150 60" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+        <!-- Branches - organic curves, thin -->
+        <path d="M150 95 Q110 80 55 55" stroke="#1a1a1a" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M150 95 Q190 78 245 50" stroke="#1a1a1a" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M150 160 Q105 150 50 148" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.4"/>
+        <path d="M150 160 Q195 152 248 152" stroke="#1a1a1a" stroke-width="1" fill="none" opacity="0.4"/>
+        <!-- Sub-branches -->
+        <path d="M55 55 Q40 42 28 35" stroke="#1a1a1a" stroke-width="0.6" fill="none" opacity="0.3"/>
+        <path d="M55 55 Q65 38 78 30" stroke="#1a1a1a" stroke-width="0.6" fill="none" opacity="0.3"/>
+
+        <!-- Dots at endpoints -->
+        <circle cx="55" cy="55" r="14" fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.5"/>
+        <text x="55" y="58" text-anchor="middle" font-size="7" fill="#1a1a1a" font-family="system-ui" letter-spacing="0.5">shaberu</text>
+
+        <circle cx="245" cy="50" r="13" fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.5"/>
+        <text x="245" y="53" text-anchor="middle" font-size="7" fill="#1a1a1a" font-family="system-ui" letter-spacing="0.5">halfway</text>
+
+        <circle cx="50" cy="148" r="11" fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.4"/>
+        <text x="50" y="151" text-anchor="middle" font-size="6" fill="#1a1a1a" font-family="system-ui">MuSentiment</text>
+
+        <circle cx="248" cy="152" r="10" fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.4"/>
+        <text x="248" y="155" text-anchor="middle" font-size="6" fill="#1a1a1a" font-family="system-ui">jazz</text>
+
+        <!-- Small end dots -->
+        <circle cx="28" cy="35" r="4" fill="#1a1a1a" opacity="0.15"/>
+        <circle cx="78" cy="30" r="4" fill="#1a1a1a" opacity="0.15"/>
+
+        <!-- Roots - mirror of branches -->
+        <path d="M150 285 Q115 292 75 295" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.2"/>
+        <path d="M150 285 Q185 290 225 293" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.2"/>
+
+        <!-- One accent sakura petal -->
+        <ellipse cx="200" cy="100" rx="4" ry="6" fill="#d4a0a0" opacity="0.3" transform="rotate(-30 200 100)"/>
+        <ellipse cx="120" cy="200" rx="3" ry="5" fill="#d4a0a0" opacity="0.2" transform="rotate(15 120 200)"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>C. Minimal Line Art</h3>
+      <p>Thin, organic curves. Monochrome with one muted accent (soft pink for sakura). Maximum whitespace. Nodes are just outlined circles with text. <strong>Apple keynote minimalism meets Japanese ink drawing.</strong> Sakura as delicate pink ellipses drifting down.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Planner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'SF Mono', 'Fira Code', monospace; background: #0c0a09; color: #e7e5e4; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+    .card { max-width: 480px; width: 100%; background: #1c1917; border: 1px solid #292524; border-radius: 12px; padding: 2rem; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; color: #fafaf9; }
+    .subtitle { font-size: 0.75rem; color: #78716c; margin-bottom: 1.5rem; }
+    .desc { font-size: 0.875rem; line-height: 1.6; color: #a8a29e; margin-bottom: 1.5rem; }
+    .features { list-style: none; margin-bottom: 1.5rem; }
+    .features li { font-size: 0.8rem; color: #a8a29e; padding: 0.4rem 0; border-bottom: 1px solid #292524; }
+    .features li::before { content: '> '; color: #78716c; }
+    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.625rem; background: #292524; color: #a8a29e; margin-right: 0.25rem; }
+    .year { font-size: 0.7rem; color: #57534e; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Weekly Planner</h1>
+    <div class="subtitle">PWA planner with offline support</div>
+    <p class="desc">A Progressive Web App for weekly planning that works offline. Installable on any device with a clean, focused interface for organizing your week.</p>
+    <ul class="features">
+      <li>Installable PWA</li>
+      <li>Offline-first architecture</li>
+      <li>Weekly task organization</li>
+      <li>Service worker caching</li>
+    </ul>
+    <div>
+      <span class="badge">PWA</span>
+      <span class="badge">JavaScript</span>
+    </div>
+    <div class="year">2026</div>
+  </div>
+</body>
+</html>

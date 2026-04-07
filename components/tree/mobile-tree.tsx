@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { MonitorModal } from '@/components/monitor-modal';
 import { projects, clusters, type Cluster, type Project } from '@/data/projects';
 
-const clusterOrder: Cluster[] = ['ai-language', 'ministry-community', 'ml-data', 'creative-play'];
+const clusterOrder: Cluster[] = ['ai-language', 'ministry-community', 'creative-play'];
 
 function MobileProjectCard({ project, onSelect }: { project: Project; onSelect: (p: Project) => void }) {
   const size = project.tier === 1 ? 56 : project.tier === 2 ? 44 : 34;

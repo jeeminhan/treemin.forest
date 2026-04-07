@@ -1,0 +1,187 @@
+<h2>Full Design: Tree Portfolio</h2>
+<p class="subtitle">Review each section — let me know if anything needs adjusting</p>
+
+<!-- Section 1: Overall Layout -->
+<div class="section">
+  <h3>1. Page Structure</h3>
+  <div class="mockup">
+    <div class="mockup-header">Scroll Journey (top → bottom)</div>
+    <div class="mockup-body" style="padding: 24px;">
+      <svg viewBox="0 0 400 600" width="100%" height="500">
+        <!-- Viewport 1: Hero -->
+        <rect x="20" y="10" width="360" height="180" rx="4" fill="none" stroke="#ddd" stroke-width="1"/>
+        <text x="40" y="35" font-size="10" fill="#999" font-family="system-ui">VIEWPORT 1 — Hero Tree</text>
+        <!-- Name -->
+        <text x="200" y="55" text-anchor="middle" font-size="11" fill="#1a1a1a" font-family="system-ui" font-weight="600">Jeemin Han</text>
+        <text x="200" y="68" text-anchor="middle" font-size="7" fill="#999" font-family="system-ui" font-style="italic">I see what things could be and redesign them</text>
+        <!-- Mini tree -->
+        <path d="M200 175 C200 155 200 120 200 80" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <path d="M200 100 Q155 85 110 75" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <path d="M200 100 Q245 83 290 72" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <path d="M200 130 Q150 122 105 118" stroke="#1a1a1a" stroke-width="0.7" fill="none" opacity="0.3"/>
+        <path d="M200 130 Q250 120 295 115" stroke="#1a1a1a" stroke-width="0.7" fill="none" opacity="0.3"/>
+        <circle cx="110" cy="75" r="8" fill="none" stroke="#1a1a1a" stroke-width="0.6" opacity="0.5"/>
+        <circle cx="290" cy="72" r="7" fill="none" stroke="#1a1a1a" stroke-width="0.6" opacity="0.5"/>
+        <circle cx="105" cy="118" r="6" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.4"/>
+        <circle cx="295" cy="115" r="6" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.4"/>
+        <!-- Sakura petals -->
+        <ellipse cx="150" cy="90" rx="3" ry="4" fill="#d4a0a0" opacity="0.25" transform="rotate(-20 150 90)"/>
+        <ellipse cx="260" cy="105" rx="2" ry="3" fill="#d4a0a0" opacity="0.2" transform="rotate(15 260 105)"/>
+        <ellipse cx="320" cy="140" rx="2.5" ry="3.5" fill="#d4a0a0" opacity="0.15" transform="rotate(-35 320 140)"/>
+        <!-- Cluster labels -->
+        <text x="90" y="65" font-size="6" fill="#bbb" font-family="system-ui">AI & Language</text>
+        <text x="270" y="62" font-size="6" fill="#bbb" font-family="system-ui">Ministry</text>
+        <text x="85" y="110" font-size="6" fill="#bbb" font-family="system-ui">ML & Data</text>
+        <text x="275" y="107" font-size="6" fill="#bbb" font-family="system-ui">Creative</text>
+
+        <!-- Scroll indicator -->
+        <text x="200" y="195" text-anchor="middle" font-size="18" fill="#ccc">↓</text>
+
+        <!-- Viewport 2: Roots/Nav -->
+        <rect x="20" y="210" width="360" height="130" rx="4" fill="none" stroke="#ddd" stroke-width="1"/>
+        <text x="40" y="230" font-size="10" fill="#999" font-family="system-ui">VIEWPORT 2 — Roots (scroll-reveal)</text>
+        <!-- Roots spreading -->
+        <path d="M200 210 Q200 240 200 250" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.3"/>
+        <path d="M200 250 Q155 270 90 285" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.3"/>
+        <path d="M200 250 Q230 268 260 280" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.3"/>
+        <path d="M200 250 Q170 275 140 295" stroke="#1a1a1a" stroke-width="0.7" fill="none" opacity="0.25"/>
+        <path d="M200 250 Q270 280 310 290" stroke="#1a1a1a" stroke-width="0.7" fill="none" opacity="0.25"/>
+        <!-- Root labels -->
+        <text x="90" y="300" font-size="8" fill="#1a1a1a" font-family="system-ui" text-anchor="middle">About</text>
+        <text x="140" y="310" font-size="8" fill="#1a1a1a" font-family="system-ui" text-anchor="middle">Resume</text>
+        <text x="260" y="295" font-size="8" fill="#1a1a1a" font-family="system-ui" text-anchor="middle">Creative</text>
+        <text x="310" y="305" font-size="8" fill="#1a1a1a" font-family="system-ui" text-anchor="middle">Contact</text>
+
+        <!-- Scroll indicator -->
+        <text x="200" y="350" text-anchor="middle" font-size="18" fill="#ccc">↓</text>
+
+        <!-- Viewport 3: Root content sections -->
+        <rect x="20" y="370" width="360" height="220" rx="4" fill="none" stroke="#ddd" stroke-width="1"/>
+        <text x="40" y="390" font-size="10" fill="#999" font-family="system-ui">VIEWPORT 3+ — Root Content Sections</text>
+        <!-- About section -->
+        <rect x="40" y="405" width="340" height="40" rx="2" fill="#f5f5f5"/>
+        <text x="55" y="420" font-size="9" fill="#1a1a1a" font-family="system-ui" font-weight="500">About</text>
+        <text x="55" y="435" font-size="7" fill="#888" font-family="system-ui">Builder, learner, puzzle-solver. Based between Dallas and Japan.</text>
+        <!-- Resume section -->
+        <rect x="40" y="455" width="340" height="40" rx="2" fill="#f5f5f5"/>
+        <text x="55" y="470" font-size="9" fill="#1a1a1a" font-family="system-ui" font-weight="500">Resume</text>
+        <text x="55" y="485" font-size="7" fill="#888" font-family="system-ui">IFI AI Prototyper → Cru Japan → Raytheon → KCF → Texas A&M</text>
+        <!-- Creative section -->
+        <rect x="40" y="505" width="340" height="40" rx="2" fill="#f5f5f5"/>
+        <text x="55" y="520" font-size="9" fill="#1a1a1a" font-family="system-ui" font-weight="500">Creative</text>
+        <text x="55" y="535" font-size="7" fill="#888" font-family="system-ui">Film photography, Psalm 1, Thailand photobook, UI/UX redesigns</text>
+        <!-- Contact section -->
+        <rect x="40" y="555" width="340" height="25" rx="2" fill="#f5f5f5"/>
+        <text x="55" y="572" font-size="9" fill="#1a1a1a" font-family="system-ui" font-weight="500">Contact</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2: Interactions -->
+<div class="section">
+  <h3>2. Interactions</h3>
+  <table style="width: 100%; border-collapse: collapse; font-size: 14px; font-family: system-ui;">
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666; width: 35%;"><strong>Node hover</strong></td>
+      <td style="padding: 10px; color: #444;">Node circle subtly scales up. Project name fades in. Branch line thickens slightly.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Node click</strong></td>
+      <td style="padding: 10px; color: #444;">Inline panel expands next to the node. Other nodes dim. Panel shows: name, subtitle, description, story, tech stack pills, GitHub/live links.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Panel close</strong></td>
+      <td style="padding: 10px; color: #444;">Click × or click another node. Panel collapses back. All nodes restore opacity.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Scroll reveal</strong></td>
+      <td style="padding: 10px; color: #444;">Tree branches draw/grow as they enter viewport. Roots emerge as you scroll past the trunk. Content sections fade in.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Root click</strong></td>
+      <td style="padding: 10px; color: #444;">Smooth-scrolls to the corresponding content section below.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Sakura petals</strong></td>
+      <td style="padding: 10px; color: #444;">Continuously falling, subtle, translucent. Animated with CSS or canvas. Density changes with season.</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; color: #666;"><strong>Seasons</strong></td>
+      <td style="padding: 10px; color: #444;">Auto-matches real calendar. Spring: sakura + pink. Summer: green canopy + warm. Autumn: falling leaves + amber. Winter: bare branches + snow + cool grays.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Section 3: Visual Language -->
+<div class="section">
+  <h3>3. Visual Language</h3>
+  <table style="width: 100%; border-collapse: collapse; font-size: 14px; font-family: system-ui;">
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666; width: 35%;"><strong>Background</strong></td>
+      <td style="padding: 10px; color: #444;">#FAFAFA off-white (supports dark mode toggle: #0A0A0A)</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Tree lines</strong></td>
+      <td style="padding: 10px; color: #444;">Thin organic curves. #1A1A1A at varying opacities. Trunk thicker, sub-branches thinner.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Project nodes</strong></td>
+      <td style="padding: 10px; color: #444;">Outlined circles. Tier 1 largest, Tier 3 smallest. Text label inside.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Seasonal accent</strong></td>
+      <td style="padding: 10px; color: #444;">Spring: muted pink #D4A0A0. Summer: soft green #8BA888. Autumn: warm amber #C4956A. Winter: cool blue-gray #A0B0C0.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Typography</strong></td>
+      <td style="padding: 10px; color: #444;">Keep existing: DM Sans (body), Space Mono (display), JetBrains Mono (labels/metadata).</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; color: #666;"><strong>Animations</strong></td>
+      <td style="padding: 10px; color: #444;">Framer Motion for panel expand/collapse, scroll-triggered branch drawing, node hover. CSS keyframes for falling petals/particles.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Section 4: What gets dropped -->
+<div class="section">
+  <h3>4. Dropped from Current Build</h3>
+  <ul style="font-size: 14px; color: #666; font-family: system-ui; line-height: 2;">
+    <li><s>Boot sequence</s> — no longer fits the organic metaphor</li>
+    <li><s>Dock</s> — replaced by roots-as-navigation</li>
+    <li><s>Terminal</s> — doesn't fit</li>
+    <li><s>OS Chrome</s> (clock, user identity bar) — replaced by name at tree crown</li>
+    <li><s>Desktop icons / icon grid</s> — replaced by tree nodes</li>
+    <li><s>Context menu / Easter eggs / Hidden file</s> — can revisit later</li>
+    <li><s>Window frame (draggable)</s> — replaced by inline expansion panels</li>
+    <li><strong>Kept:</strong> Theme provider (for seasons), parallel routes (@window for SEO fallbacks), project data, all page content (About, Resume, Creative, Contact)</li>
+  </ul>
+</div>
+
+<!-- Section 5: Tech approach -->
+<div class="section">
+  <h3>5. Technical Approach</h3>
+  <table style="width: 100%; border-collapse: collapse; font-size: 14px; font-family: system-ui;">
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666; width: 35%;"><strong>Tree rendering</strong></td>
+      <td style="padding: 10px; color: #444;">SVG — precise control over curves, nodes, hit areas. Responsive via viewBox. Framer Motion for SVG path animations.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Particles (petals/snow)</strong></td>
+      <td style="padding: 10px; color: #444;">Lightweight CSS keyframe animations on absolutely-positioned elements. No canvas overhead.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Scroll animations</strong></td>
+      <td style="padding: 10px; color: #444;">Framer Motion useScroll + useTransform for branch draw-in and root reveal.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; color: #666;"><strong>Inline panels</strong></td>
+      <td style="padding: 10px; color: #444;">React state for selected node. AnimatePresence for panel enter/exit. Positioned relative to SVG node coordinates.</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; color: #666;"><strong>Season detection</strong></td>
+      <td style="padding: 10px; color: #444;">Client-side Date check. Sets CSS variables for accent color, particle type, tree decoration.</td>
+    </tr>
+  </table>
+</div>

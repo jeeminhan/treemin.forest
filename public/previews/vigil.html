@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vigil</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#fafaf9;font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{max-width:600px;width:100%;padding:3rem 2rem;text-align:center}
+.year{display:inline-block;font-size:.7rem;letter-spacing:.15em;color:#71717a;border:1px solid #27272a;border-radius:999px;padding:.25rem .75rem;margin-bottom:2rem}
+.eye{width:100px;height:56px;margin:0 auto 1.5rem;position:relative}
+.eye::before{content:'';position:absolute;inset:0;border:3px solid #ef4444;border-radius:50%;transform:scaleY(.55)}
+.eye::after{content:'';position:absolute;width:20px;height:20px;background:radial-gradient(circle,#ef4444 40%,transparent 41%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+h1{font-size:3.5rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:linear-gradient(180deg,#fca5a5,#ef4444,#991b1b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.sub{color:#dc2626;font-size:.85rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.tag{color:#71717a;font-size:.9rem;margin-bottom:2rem;line-height:1.6}
+.blocked{background:#1a1a1a;border:1px solid #27272a;border-radius:12px;padding:1.25rem;margin-bottom:2rem}
+.blocked-title{font-size:.75rem;color:#ef4444;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem}
+.site{display:flex;align-items:center;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid #1f1f1f}
+.site:last-child{border:none}
+.site-name{font-size:.85rem;color:#a1a1aa}
+.site-status{font-size:.7rem;color:#ef4444;font-weight:600}
+.pills{display:flex;gap:.5rem;justify-content:center}
+.pill{background:#1c1111;border:1px solid #450a0a;border-radius:999px;padding:.3rem .8rem;font-size:.75rem;color:#fca5a5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="year">2026</div>
+  <div class="eye"></div>
+  <h1>Vigil</h1>
+  <p class="sub">AI Focus Gatekeeper</p>
+  <p class="tag">Chrome extension that blocks distracting sites.<br>State your intent to unlock. Gemini Nano evaluates on-device.</p>
+  <div class="blocked">
+    <div class="blocked-title">Currently Blocked</div>
+    <div class="site"><span class="site-name">twitter.com</span><span class="site-status">BLOCKED</span></div>
+    <div class="site"><span class="site-name">reddit.com</span><span class="site-status">BLOCKED</span></div>
+    <div class="site"><span class="site-name">youtube.com</span><span class="site-status">BLOCKED</span></div>
+  </div>
+  <div class="pills">
+    <span class="pill">Chrome Extension</span>
+    <span class="pill">Gemini Nano</span>
+  </div>
+</div>
+</body>
+</html>

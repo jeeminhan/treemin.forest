@@ -5,15 +5,19 @@ import { motion } from 'framer-motion';
 const ROOTS = [
   { id: 'about', label: 'About', x: 110, endX: 30, endY: 120 },
   { id: 'resume', label: 'Resume', x: 220, endX: 160, endY: 130 },
-  { id: 'projects', label: 'Projects', x: 330, endX: 310, endY: 135 },
+  { id: 'projects', label: 'Projects', x: 330, endX: 310, endY: 135, href: '/projects' },
   { id: 'ministry', label: 'Ministry', x: 440, endX: 460, endY: 130 },
   { id: 'creative', label: 'Creative', x: 560, endX: 620, endY: 125 },
   { id: 'contact', label: 'Contact', x: 680, endX: 760, endY: 115 },
 ] as const;
 
 export function Roots() {
-  function scrollTo(id: string) {
-    const el = document.getElementById(id);
+  function handleNav(root: typeof ROOTS[number]) {
+    if ('href' in root && root.href) {
+      window.location.href = root.href;
+      return;
+    }
+    const el = document.getElementById(root.id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -44,8 +48,8 @@ export function Roots() {
                 role="link"
                 tabIndex={0}
                 aria-label={`Navigate to ${root.label}`}
-                onClick={() => scrollTo(root.id)}
-                onKeyDown={(e) => { if (e.key === 'Enter') scrollTo(root.id); }}
+                onClick={() => handleNav(root)}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleNav(root); }}
                 style={{ cursor: 'pointer' }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

@@ -1,0 +1,142 @@
+<h2>How should project details appear when you click a node?</h2>
+<p class="subtitle">We're dropping the OS windows — what replaces them?</p>
+
+<div class="cards">
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 24px; background: #fafafa;">
+      <svg viewBox="0 0 400 280" width="100%" height="240">
+        <!-- Tree stays small/faded at top -->
+        <g opacity="0.2">
+          <path d="M200 80 C200 60 199 40 200 10" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+          <path d="M200 30 Q170 20 140 10" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+          <path d="M200 30 Q230 18 260 8" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+          <circle cx="140" cy="10" r="6" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+          <circle cx="260" cy="8" r="6" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+        </g>
+        <!-- Highlighted node -->
+        <circle cx="140" cy="10" r="6" fill="none" stroke="#1a1a1a" stroke-width="1.2" opacity="0.8"/>
+
+        <!-- Arrow indicating scroll -->
+        <text x="200" y="100" text-anchor="middle" font-size="10" fill="#999" font-family="system-ui">↓ smooth scroll ↓</text>
+
+        <!-- Detail section below -->
+        <rect x="40" y="120" width="320" height="140" rx="2" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.2"/>
+        <text x="60" y="145" font-size="14" fill="#1a1a1a" font-family="system-ui" font-weight="600">shaberu</text>
+        <text x="60" y="162" font-size="9" fill="#999" font-family="system-ui">しゃべる — Japanese speaking practice PWA</text>
+        <line x1="60" y1="172" x2="340" y2="172" stroke="#1a1a1a" stroke-width="0.3" opacity="0.2"/>
+        <text x="60" y="190" font-size="8" fill="#666" font-family="system-ui">I was learning Japanese on my own and saw a gap...</text>
+        <rect x="60" y="205" width="45" height="18" rx="9" fill="none" stroke="#1a1a1a" stroke-width="0.4" opacity="0.4"/>
+        <text x="82" y="217" text-anchor="middle" font-size="7" fill="#666" font-family="system-ui">Next.js</text>
+        <rect x="112" y="205" width="45" height="18" rx="9" fill="none" stroke="#1a1a1a" stroke-width="0.4" opacity="0.4"/>
+        <text x="134" y="217" text-anchor="middle" font-size="7" fill="#666" font-family="system-ui">Gemini</text>
+        <rect x="164" y="205" width="35" height="18" rx="9" fill="none" stroke="#1a1a1a" stroke-width="0.4" opacity="0.4"/>
+        <text x="181" y="217" text-anchor="middle" font-size="7" fill="#666" font-family="system-ui">PWA</text>
+        <!-- Links -->
+        <text x="60" y="245" font-size="8" fill="#1a1a1a" font-family="system-ui" text-decoration="underline" opacity="0.5">GitHub ↗</text>
+        <text x="120" y="245" font-size="8" fill="#1a1a1a" font-family="system-ui" text-decoration="underline" opacity="0.5">Live ↗</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>A. Scroll-to-Section</h3>
+      <p>Clicking a node smooth-scrolls to a <strong>dedicated section below the tree</strong>. Each cluster has its own section with project cards arranged cleanly. Tree fades/shrinks as you scroll past it. <em>Simple, accessible, no overlays.</em></p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 24px; background: #fafafa;">
+      <svg viewBox="0 0 400 280" width="100%" height="240">
+        <!-- Tree stays visible but dimmed -->
+        <g opacity="0.15">
+          <path d="M200 260 C200 200 199 140 200 40" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+          <path d="M200 80 Q150 60 90 40" stroke="#1a1a1a" stroke-width="1" fill="none"/>
+          <path d="M200 80 Q250 58 310 35" stroke="#1a1a1a" stroke-width="1" fill="none"/>
+          <path d="M200 150 Q145 140 80 138" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+          <path d="M200 150 Q255 142 320 140" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+          <circle cx="90" cy="40" r="10" fill="none" stroke="#1a1a1a" stroke-width="0.6"/>
+          <circle cx="310" cy="35" r="9" fill="none" stroke="#1a1a1a" stroke-width="0.6"/>
+          <circle cx="80" cy="138" r="8" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+          <circle cx="320" cy="140" r="7" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+        </g>
+
+        <!-- Expanded node panel - slides out from node position -->
+        <rect x="60" y="15" width="200" height="155" rx="4" fill="white" stroke="#1a1a1a" stroke-width="0.5" opacity="0.95"/>
+        <!-- Connecting line from node to panel -->
+        <line x1="90" y1="40" x2="90" y2="15" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="3" opacity="0.3"/>
+        <!-- Panel content -->
+        <text x="78" y="40" font-size="13" fill="#1a1a1a" font-family="system-ui" font-weight="600">shaberu</text>
+        <text x="78" y="55" font-size="8" fill="#999" font-family="system-ui">しゃべる</text>
+        <line x1="78" y1="62" x2="242" y2="62" stroke="#1a1a1a" stroke-width="0.2" opacity="0.3"/>
+        <text x="78" y="78" font-size="7.5" fill="#666" font-family="system-ui">Japanese speaking practice PWA</text>
+        <text x="78" y="92" font-size="7.5" fill="#666" font-family="system-ui">Gemini Live API, tool use, AI corrections</text>
+        <rect x="78" y="102" width="38" height="14" rx="7" fill="none" stroke="#1a1a1a" stroke-width="0.3" opacity="0.4"/>
+        <text x="97" y="112" text-anchor="middle" font-size="6" fill="#666" font-family="system-ui">Next.js</text>
+        <rect x="120" y="102" width="38" height="14" rx="7" fill="none" stroke="#1a1a1a" stroke-width="0.3" opacity="0.4"/>
+        <text x="139" y="112" text-anchor="middle" font-size="6" fill="#666" font-family="system-ui">Gemini</text>
+        <!-- Story -->
+        <text x="78" y="132" font-size="7" fill="#888" font-family="system-ui" font-style="italic">"I was learning Japanese on my own</text>
+        <text x="78" y="143" font-size="7" fill="#888" font-family="system-ui" font-style="italic">and saw a gap..."</text>
+        <!-- Close hint -->
+        <text x="244" y="30" text-anchor="middle" font-size="10" fill="#ccc" font-family="system-ui">×</text>
+        <!-- Active node stays highlighted -->
+        <circle cx="90" cy="40" r="10" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>B. Inline Expansion</h3>
+      <p>Clicking a node <strong>expands a panel right next to it</strong> on the tree canvas. Tree stays visible but dims. Panel slides out from the node. Click another node or × to close. <em>Everything stays on one canvas — spatial memory.</em></p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 24px; background: #fafafa;">
+      <svg viewBox="0 0 400 280" width="100%" height="240">
+        <!-- Tree zoomed into one branch -->
+        <!-- Fade: other branches barely visible -->
+        <g opacity="0.06">
+          <path d="M200 270 C200 200 199 140 200 30" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+          <path d="M200 150 Q250 138 310 130" stroke="#1a1a1a" stroke-width="1" fill="none"/>
+          <circle cx="310" cy="130" r="8" fill="none" stroke="#1a1a1a" stroke-width="0.6"/>
+          <path d="M200 200 Q145 195 80 192" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+        </g>
+
+        <!-- Zoomed branch -->
+        <path d="M200 270 C200 220 199 180 200 100" stroke="#1a1a1a" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M200 130 Q150 110 80 80" stroke="#1a1a1a" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+        <!-- Main node - enlarged -->
+        <circle cx="80" cy="80" r="24" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="80" y="76" text-anchor="middle" font-size="10" fill="#1a1a1a" font-family="system-ui" font-weight="500">shaberu</text>
+        <text x="80" y="89" text-anchor="middle" font-size="7" fill="#999" font-family="system-ui">しゃべる</text>
+
+        <!-- Sub-branch nodes visible -->
+        <path d="M80 80 Q55 60 35 45" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <path d="M80 80 Q95 55 115 40" stroke="#1a1a1a" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <circle cx="35" cy="45" r="6" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.5"/>
+        <text x="35" y="48" text-anchor="middle" font-size="5" fill="#999" font-family="system-ui">campus</text>
+        <circle cx="115" cy="40" r="6" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.5"/>
+        <text x="115" y="43" text-anchor="middle" font-size="5" fill="#999" font-family="system-ui">translate</text>
+
+        <!-- Detail text alongside -->
+        <text x="200" y="55" font-size="8" fill="#666" font-family="system-ui">Japanese speaking practice PWA</text>
+        <text x="200" y="70" font-size="7" fill="#888" font-family="system-ui">Gemini Live API · tool use · live audio</text>
+        <line x1="200" y1="78" x2="370" y2="78" stroke="#1a1a1a" stroke-width="0.2" opacity="0.2"/>
+        <text x="200" y="95" font-size="7" fill="#888" font-family="system-ui" font-style="italic">"I was learning Japanese on my own</text>
+        <text x="200" y="108" font-size="7" fill="#888" font-family="system-ui" font-style="italic">and saw a gap..."</text>
+        <rect x="200" y="120" width="38" height="14" rx="7" fill="none" stroke="#1a1a1a" stroke-width="0.3"/>
+        <text x="219" y="130" text-anchor="middle" font-size="6" fill="#666" font-family="system-ui">Next.js</text>
+        <rect x="244" y="120" width="38" height="14" rx="7" fill="none" stroke="#1a1a1a" stroke-width="0.3"/>
+        <text x="263" y="130" text-anchor="middle" font-size="6" fill="#666" font-family="system-ui">Gemini</text>
+
+        <!-- Back hint -->
+        <text x="20" y="270" font-size="9" fill="#ccc" font-family="system-ui">← back to full tree</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>C. Zoom Into Branch</h3>
+      <p>Clicking a node <strong>zooms the tree into that branch</strong>. Other branches fade out. The selected branch expands to fill the viewport with project details alongside. Click back to zoom out. <em>Cinematic, immersive — like Apple's product zoom transitions.</em></p>
+    </div>
+  </div>
+</div>

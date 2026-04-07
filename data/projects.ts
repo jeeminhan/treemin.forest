@@ -1,7 +1,6 @@
 export type Cluster =
   | 'ai-language'
   | 'ministry-community'
-  | 'ml-data'
   | 'creative-play';
 
 export type BranchSide = 'left' | 'right';
@@ -25,9 +24,8 @@ export type Project = {
 
 export const clusters: Record<Cluster, { label: string; labelJa?: string; side: BranchSide; trunkY: number }> = {
   'ai-language': { label: 'AI & Language', labelJa: 'AI・言語', side: 'left', trunkY: 0.22 },
-  'ministry-community': { label: 'Ministry & Community', labelJa: '宣教・コミュニティ', side: 'right', trunkY: 0.32 },
-  'ml-data': { label: 'ML & Data', labelJa: '機械学習・データ', side: 'left', trunkY: 0.48 },
-  'creative-play': { label: 'Creative & Play', labelJa: '創作・遊び', side: 'right', trunkY: 0.58 },
+  'ministry-community': { label: 'Ministry & Community', labelJa: '宣教・コミュニティ', side: 'right', trunkY: 0.38 },
+  'creative-play': { label: 'Creative & Play', labelJa: '創作・遊び', side: 'left', trunkY: 0.58 },
 };
 
 export const projects: Project[] = [
@@ -70,6 +68,7 @@ export const projects: Project[] = [
     icon: '/icons/open-language.svg',
     techStack: ['Python', 'Next.js', 'CLI'],
     year: 2026,
+    liveUrl: '/previews/open-language.html',
     description: 'Language learning analysis tool with dashboard — level testing, progress tracking, and export.',
     story: '',
   },
@@ -109,6 +108,7 @@ export const projects: Project[] = [
     icon: '/icons/greek-word-explorer.svg',
     techStack: ['React', 'Supabase'],
     year: 2025,
+    liveUrl: '/previews/greek-word-explorer.html',
     description: 'Greek vocabulary exploration.',
     story: '',
   },
@@ -191,6 +191,7 @@ export const projects: Project[] = [
     icon: '/icons/missionary-accountability.svg',
     techStack: ['Next.js', 'Supabase', 'Gemini'],
     year: 2026,
+    liveUrl: '/previews/missionary-accountability.html',
     description: 'Role-based accountability dashboard with AI summaries and email digests.',
     story: '',
   },
@@ -223,21 +224,6 @@ export const projects: Project[] = [
   },
 
 
-  // ── ML & Data (lower-left) ─────────────────────────────────────────
-  {
-    id: 'workout-buddy',
-    name: 'workout-buddy',
-    displayName: 'Workout Buddy',
-    cluster: 'ml-data',
-    tier: 1,
-    icon: '/icons/workout-buddy.svg',
-    techStack: ['Python', 'MediaPipe', 'OpenCV', 'Raspberry Pi'],
-    year: 2023,
-    commits: 81,
-    description: 'ML workout form critique — MediaPipe/OpenCV pose detection on Raspberry Pi.',
-    story: '',
-  },
-
   // ── Creative & Play (lower-right) ──────────────────────────────────
   {
     id: 'gatekeeper',
@@ -261,6 +247,7 @@ export const projects: Project[] = [
     icon: '/icons/tech-minimalism.svg',
     techStack: ['SwiftUI', 'FamilyControls', 'Chrome Extension'],
     year: 2026,
+    liveUrl: '/previews/tech-minimalism.html',
     description: 'AI focus gatekeeper — screen time blocker with intent-based unlocking.',
     story: '',
   },
@@ -286,6 +273,7 @@ export const projects: Project[] = [
     icon: '/icons/resume-tailor.svg',
     techStack: ['Next.js', 'AI SDK', 'React PDF'],
     year: 2026,
+    liveUrl: '/previews/resume-tailor.html',
     description: 'AI-powered resume optimizer — tailors resumes to job descriptions with PDF generation.',
     story: '',
   },
@@ -298,6 +286,7 @@ export const projects: Project[] = [
     icon: '/icons/vigil.svg',
     techStack: ['Chrome Extension', 'Gemini Nano'],
     year: 2026,
+    liveUrl: '/previews/vigil.html',
     description: 'AI focus gatekeeper Chrome extension — blocks distracting sites with intent-based unlocking.',
     story: '',
   },
@@ -324,6 +313,7 @@ export const projects: Project[] = [
     icon: '/icons/interview-koro.svg',
     techStack: [],
     year: 2025,
+    liveUrl: '/previews/interview-koro.html',
     description: 'WaniKani-style interview prep with leveling system.',
     story: '',
   },
@@ -336,6 +326,7 @@ export const projects: Project[] = [
     icon: '/icons/weekly-planner.svg',
     techStack: ['PWA', 'JavaScript'],
     year: 2026,
+    liveUrl: '/previews/weekly-planner.html',
     description: 'Progressive Web App for weekly planning — installable with offline support.',
     story: '',
   },

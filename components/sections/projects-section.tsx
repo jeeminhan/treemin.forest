@@ -12,7 +12,6 @@ const tabs: { key: Tab; label: string }[] = [
   { key: 'all', label: 'All' },
   { key: 'ai-language', label: 'AI & Language' },
   { key: 'ministry-community', label: 'Ministry' },
-  { key: 'ml-data', label: 'ML & Data' },
   { key: 'creative-play', label: 'Creative' },
 ];
 

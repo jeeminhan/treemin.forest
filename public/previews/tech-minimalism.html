@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Minimalism</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090b;color:#fafaf9;font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{max-width:600px;width:100%;padding:3rem 2rem;text-align:center}
+.year{display:inline-block;font-size:.7rem;letter-spacing:.15em;color:#71717a;border:1px solid #27272a;border-radius:999px;padding:.25rem .75rem;margin-bottom:2rem}
+.shield{width:80px;height:96px;margin:0 auto 1.5rem;position:relative}
+.shield::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#10b981,#059669);clip-path:polygon(50% 0%,100% 20%,100% 65%,50% 100%,0% 65%,0% 20%);opacity:.9}
+.shield::after{content:'';position:absolute;top:28px;left:24px;width:32px;height:32px;border:3px solid rgba(255,255,255,.5);border-radius:50%}
+h1{font-size:2.8rem;font-weight:800;letter-spacing:-.03em;color:#e4e4e7;margin-bottom:.5rem}
+.sub{color:#10b981;font-size:1rem;font-weight:500;margin-bottom:.5rem}
+.tag{color:#71717a;font-size:.9rem;margin-bottom:2rem;line-height:1.6}
+.flow{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.step{background:#18181b;border:1px solid #27272a;border-radius:10px;padding:.6rem 1rem;font-size:.8rem;color:#a1a1aa}
+.arrow{color:#3f3f46;font-size:.8rem}
+.step.active{border-color:#10b981;color:#10b981}
+.pills{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.pill{background:#022c22;border:1px solid #064e3b;border-radius:999px;padding:.3rem .8rem;font-size:.75rem;color:#34d399}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="year">2026</div>
+  <div class="shield"></div>
+  <h1>Tech Minimalism</h1>
+  <p class="sub">AI Focus Gatekeeper</p>
+  <p class="tag">Screen time blocker with intent-based unlocking.<br>State your purpose. Stay intentional.</p>
+  <div class="flow">
+    <span class="step">Open app</span>
+    <span class="arrow">&rarr;</span>
+    <span class="step active">State intent</span>
+    <span class="arrow">&rarr;</span>
+    <span class="step">AI evaluates</span>
+    <span class="arrow">&rarr;</span>
+    <span class="step">Access granted</span>
+  </div>
+  <div class="pills">
+    <span class="pill">SwiftUI</span>
+    <span class="pill">FamilyControls</span>
+    <span class="pill">Chrome Extension</span>
+  </div>
+</div>
+</body>
+</html>
