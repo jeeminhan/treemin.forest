@@ -3,9 +3,9 @@
 import { useState, useMemo, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TreeBranch } from './tree-branch';
-import { InlinePanel } from './inline-panel';
 import { HoverPreview } from './hover-preview';
 import { MobileTree } from './mobile-tree';
+import { MonitorModal } from '@/components/monitor-modal';
 import { computeTreeLayout, VIEWBOX_W, VIEWBOX_H } from '@/lib/tree-layout';
 import { projects } from '@/data/projects';
 import type { Project } from '@/data/projects';
@@ -23,10 +23,7 @@ export function Tree() {
   const svgRef = useRef<SVGSVGElement>(null);
   const { branches, trunkPath, trunkWidth } = useMemo(() => computeTreeLayout(), []);
 
-  const selectedProject = selectedId ? projects.find(p => p.id === selectedId) : null;
-  const selectedNode = selectedId
-    ? branches.flatMap(b => b.subBranches).find(sb => sb.node.project.id === selectedId)?.node
-    : null;
+  const selectedProject = selectedId ? projects.find(p => p.id === selectedId) ?? null : null;
 
   function handleSelect(id: string) {
     setSelectedId(prev => prev === id ? null : id);
@@ -131,18 +128,11 @@ export function Tree() {
         )}
       </AnimatePresence>
 
-      {/* Detail panel on click */}
-      <AnimatePresence>
-        {selectedProject && selectedNode && (
-          <InlinePanel
-            project={selectedProject}
-            node={selectedNode}
-            svgWidth={VIEWBOX_W}
-            svgHeight={VIEWBOX_H}
-            onClose={() => setSelectedId(null)}
-          />
-        )}
-      </AnimatePresence>
+      {/* Monitor modal on click */}
+      <MonitorModal
+        project={selectedProject}
+        onClose={() => setSelectedId(null)}
+      />
     </div>
   );
 }

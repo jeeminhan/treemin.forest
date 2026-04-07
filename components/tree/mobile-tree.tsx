@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { MonitorModal } from '@/components/monitor-modal';
 import { projects, clusters, type Cluster, type Project } from '@/data/projects';
 
 const clusterOrder: Cluster[] = ['ai-language', 'ministry-community', 'ml-data', 'creative-play'];
@@ -286,29 +287,11 @@ export function MobileTree() {
         );
       })}
 
-      {/* Selected project detail panel */}
-      <AnimatePresence>
-        {selectedProject && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40"
-              style={{ background: 'rgba(0,0,0,0.2)' }}
-              onClick={() => setSelectedProject(null)}
-            />
-            <div className="fixed bottom-0 left-0 right-0 z-50 max-h-[85vh] overflow-y-auto pb-safe">
-              <MobileDetailPanel
-                project={selectedProject}
-                onClose={() => setSelectedProject(null)}
-              />
-              {/* Bottom safe area padding */}
-              <div className="h-6" />
-            </div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Monitor modal */}
+      <MonitorModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }

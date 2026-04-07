@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper } from './section-wrapper';
+import { MonitorModal } from '@/components/monitor-modal';
 import { projects, clusters, type Cluster, type Project } from '@/data/projects';
 
 type Tab = 'all' | Cluster;
@@ -15,9 +16,8 @@ const tabs: { key: Tab; label: string }[] = [
   { key: 'creative-play', label: 'Creative' },
 ];
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, onPreview }: { project: Project; index: number; onPreview: (p: Project) => void }) {
   const [expanded, setExpanded] = useState(false);
-  const [showPreview, setShowPreview] = useState(false);
   const previewUrl = project.liveUrl || project.githubUrl;
 
   return (
@@ -144,70 +144,28 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
       </div>
 
-      {/* Iframe preview (tap to load) */}
-      {previewUrl && (
-        <div className="px-4 pb-4 sm:px-5 sm:pb-5">
-          {!showPreview ? (
-            <button
-              onClick={() => setShowPreview(true)}
-              className="w-full py-2 rounded-lg text-xs transition-all hover:opacity-80 active:opacity-60"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                background: 'var(--accent-subtle)',
-                color: 'var(--text-secondary)',
-                border: '1px solid var(--border-default)',
-              }}
-            >
-              ▶ Preview
-            </button>
-          ) : (
-            <div className="relative">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[10px]" style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)' }}>
-                  live preview
-                </span>
-                <div className="flex gap-2">
-                  <a
-                    href={previewUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] underline underline-offset-2 hover:opacity-70"
-                    style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}
-                  >
-                    open full ↗
-                  </a>
-                  <button
-                    onClick={() => setShowPreview(false)}
-                    className="text-[10px] hover:opacity-70"
-                    style={{ color: 'var(--text-tertiary)' }}
-                  >
-                    ✕
-                  </button>
-                </div>
-              </div>
-              <div
-                className="rounded-lg overflow-hidden"
-                style={{ border: '1px solid var(--border-default)' }}
-              >
-                <iframe
-                  src={previewUrl}
-                  title={`Preview of ${project.displayName}`}
-                  className="w-full bg-white"
-                  style={{ height: 220, border: 'none' }}
-                  sandbox="allow-scripts allow-same-origin"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          )}
-        </div>
-      )}
+      {/* Preview button — opens monitor modal */}
+      <div className="px-4 pb-4 sm:px-5 sm:pb-5">
+        <button
+          onClick={() => onPreview(project)}
+          className="w-full py-2 rounded-lg text-xs transition-all hover:opacity-80 active:opacity-60"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            background: 'var(--accent-subtle)',
+            color: 'var(--text-secondary)',
+            border: '1px solid var(--border-default)',
+          }}
+        >
+          {previewUrl ? '▶ Preview' : '◉ Details'}
+        </button>
+      </div>
     </motion.div>
   );
 }
 
 export function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<Tab>('all');
+  const [previewProject, setPreviewProject] = useState<Project | null>(null);
 
   const filtered = activeTab === 'all'
     ? [...projects].sort((a, b) => a.tier - b.tier || b.year - a.year)
@@ -265,10 +223,16 @@ export function ProjectsSection() {
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5"
         >
           {filtered.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <ProjectCard key={project.id} project={project} index={i} onPreview={setPreviewProject} />
           ))}
         </motion.div>
       </AnimatePresence>
+
+      {/* Monitor modal */}
+      <MonitorModal
+        project={previewProject}
+        onClose={() => setPreviewProject(null)}
+      />
     </SectionWrapper>
   );
 }

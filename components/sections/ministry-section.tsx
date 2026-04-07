@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper } from './section-wrapper';
+import { MonitorModal } from '@/components/monitor-modal';
 import { projects } from '@/data/projects';
 import type { Project } from '@/data/projects';
 
@@ -10,9 +11,8 @@ const ministryProjects = projects
   .filter((p) => p.cluster === 'ministry-community')
   .sort((a, b) => a.tier - b.tier);
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, onPreview }: { project: Project; index: number; onPreview: (p: Project) => void }) {
   const [expanded, setExpanded] = useState(false);
-  const [showPreview, setShowPreview] = useState(false);
   const previewUrl = project.liveUrl || project.githubUrl;
 
   return (
@@ -27,84 +27,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         border: '1px solid var(--border-default)',
       }}
     >
-      {/* Iframe preview — auto-visible on desktop, tap-to-load on mobile */}
-      {previewUrl && (
-        <>
-          {/* Desktop: always show iframe */}
-          <div
-            className="relative w-full overflow-hidden hidden sm:block"
-            style={{ background: '#f8f8f8' }}
-          >
-            <iframe
-              src={previewUrl}
-              title={`Preview of ${project.displayName}`}
-              className="w-full border-none"
-              style={{ height: 280 }}
-              sandbox="allow-scripts allow-same-origin"
-              loading="lazy"
-            />
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: 'linear-gradient(to bottom, transparent 70%, var(--bg-surface) 100%)',
-              }}
-            />
-          </div>
-
-          {/* Mobile: tap to load iframe (saves data & performance) */}
-          <div className="sm:hidden">
-            {showPreview ? (
-              <div className="relative w-full overflow-hidden" style={{ background: '#f8f8f8' }}>
-                <iframe
-                  src={previewUrl}
-                  title={`Preview of ${project.displayName}`}
-                  className="w-full border-none"
-                  style={{ height: 200 }}
-                  sandbox="allow-scripts allow-same-origin"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(to bottom, transparent 70%, var(--bg-surface) 100%)',
-                  }}
-                />
-                <button
-                  onClick={() => setShowPreview(false)}
-                  className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full text-xs"
-                  style={{
-                    background: 'var(--panel-bg)',
-                    color: 'var(--text-tertiary)',
-                    backdropFilter: 'blur(8px)',
-                  }}
-                  aria-label="Close preview"
-                >
-                  ✕
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={() => setShowPreview(true)}
-                className="w-full py-6 flex flex-col items-center gap-1.5 transition-colors active:opacity-70"
-                style={{ background: 'var(--accent-subtle)' }}
-              >
-                <span
-                  className="text-lg"
-                  style={{ color: 'var(--accent)' }}
-                >
-                  ▶
-                </span>
-                <span
-                  className="text-[0.625rem]"
-                  style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)' }}
-                >
-                  tap to preview
-                </span>
-              </button>
-            )}
-          </div>
-        </>
-      )}
+      {/* Preview button — opens monitor modal */}
+      <button
+        onClick={() => onPreview(project)}
+        className="w-full py-4 flex flex-col items-center gap-1.5 transition-colors hover:opacity-80 active:opacity-60"
+        style={{ background: 'var(--accent-subtle)' }}
+      >
+        <span className="text-lg" style={{ color: 'var(--accent)' }}>▶</span>
+        <span
+          className="text-[0.625rem]"
+          style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)' }}
+        >
+          {previewUrl ? 'preview' : 'details'}
+        </span>
+      </button>
 
       {/* Project info */}
       <div className="px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
@@ -205,6 +141,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export function MinistrySection() {
+  const [previewProject, setPreviewProject] = useState<Project | null>(null);
+
   return (
     <SectionWrapper id="ministry">
       <h2
@@ -219,9 +157,15 @@ export function MinistrySection() {
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
         {ministryProjects.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
+          <ProjectCard key={project.id} project={project} index={i} onPreview={setPreviewProject} />
         ))}
       </div>
+
+      {/* Monitor modal */}
+      <MonitorModal
+        project={previewProject}
+        onClose={() => setPreviewProject(null)}
+      />
     </SectionWrapper>
   );
 }
