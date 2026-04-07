@@ -20,6 +20,7 @@ export type Project = {
   githubUrl?: string;
   description: string;
   story: string;
+  progress: number; // 0–100
 };
 
 export const clusters: Record<Cluster, { label: string; labelJa?: string; side: BranchSide; trunkY: number }> = {
@@ -44,6 +45,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jeeminhan/shaberu',
     description: 'Japanese speaking practice PWA — Gemini Live API, tool use, live audio, AI corrections.',
     story: 'I was learning Japanese on my own and saw a gap — no tool that let you practice speaking with real-time AI feedback tuned to your actual vocabulary level. So I built one.',
+    progress: 70,
   },
   {
     id: 'sseuda',
@@ -58,6 +60,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jeeminhan/Sseuda',
     description: 'AI-powered Korean journaling app — RAG pipeline for personalized grammar feedback.',
     story: 'I wanted to improve my Korean writing but couldn\'t find a tool that gave real, context-aware grammar feedback. So I built one with a RAG pipeline that learns from my past entries.',
+    progress: 40,
   },
   {
     id: 'open-language',
@@ -71,6 +74,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/open-language.html',
     description: 'Language learning analysis tool with dashboard — level testing, progress tracking, and export.',
     story: '',
+    progress: 25,
   },
   {
     id: 'campus-reach',
@@ -85,6 +89,7 @@ export const projects: Project[] = [
     liveUrl: 'https://campus-reach-coral.vercel.app',
     description: 'Explore international student origins × unreached people groups.',
     story: 'International students come from everywhere — but some come from places with almost no access to the gospel. I built a tool to make that visible.',
+    progress: 85,
   },
   {
     id: 'translateio',
@@ -99,6 +104,7 @@ export const projects: Project[] = [
     liveUrl: 'https://translate-practice-jeemin-hans-projects.vercel.app',
     description: 'AI-powered translation and localization tool.',
     story: '',
+    progress: 60,
   },
   {
     id: 'greek-word-explorer',
@@ -112,6 +118,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/greek-word-explorer.html',
     description: 'Greek vocabulary exploration.',
     story: '',
+    progress: 30,
   },
   {
     id: 'kotonoha',
@@ -126,6 +133,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jeeminhan/kotonoha',
     description: 'Language learning web app.',
     story: '',
+    progress: 20,
   },
   {
     id: 'brief-builder',
@@ -140,6 +148,7 @@ export const projects: Project[] = [
     liveUrl: 'https://clearbrief-iota.vercel.app',
     description: 'AI-powered project brief assistant with email delivery.',
     story: '',
+    progress: 55,
   },
 
   // ── Ministry & Community (upper-right) ──────────────────────────────
@@ -157,6 +166,7 @@ export const projects: Project[] = [
     liveUrl: 'https://halfway-eta.vercel.app',
     description: 'Philosophical reflection app — encounter capture, keepsakes, prompts.',
     story: 'People in ministry have meaningful encounters every day that just disappear. I wanted to give them a way to capture and reflect on those moments.',
+    progress: 90,
   },
   {
     id: 'kairos',
@@ -170,6 +180,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jeeminhan/kairos',
     description: 'Cross-platform mobile app for ministry with Firebase integration and native navigation.',
     story: '',
+    progress: 35,
   },
   {
     id: 'jesus-story',
@@ -184,6 +195,7 @@ export const projects: Project[] = [
     liveUrl: 'https://jesus-story-seven.vercel.app',
     description: 'Personalized AI-generated gospel narratives with guardrails.',
     story: 'Everyone has a different starting point with the gospel. I built a tool that meets people where they are — generating a personalized retelling while keeping the message faithful.',
+    progress: 65,
   },
   {
     id: 'missionary-accountability',
@@ -197,6 +209,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/missionary-accountability.html',
     description: 'Role-based accountability dashboard with AI summaries and email digests.',
     story: '',
+    progress: 25,
   },
   {
     id: 'ism-journey-map',
@@ -211,6 +224,7 @@ export const projects: Project[] = [
     liveUrl: 'https://ism-journey-map.vercel.app',
     description: 'Journey mapping for International Student Ministry.',
     story: '',
+    progress: 80,
   },
   {
     id: 'frontier-commons-website',
@@ -224,6 +238,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/International-Friendships/frontier-commons-website',
     description: 'Website for International Friendships — Global Atlas, ISM Primer, and feedback tools.',
     story: '',
+    progress: 70,
   },
 
 
@@ -240,6 +255,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jeeminhan/gatekeeper',
     description: 'iOS screen time accountability app — commitment gates, friend circles, and an AI Sensei.',
     story: 'I kept getting distracted by my own devices. Instead of willpower, I built an AI gatekeeper that makes you justify why you need access before letting you through.',
+    progress: 60,
   },
   {
     id: 'tech-minimalism',
@@ -253,6 +269,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/tech-minimalism.html',
     description: 'AI focus gatekeeper — screen time blocker with intent-based unlocking.',
     story: '',
+    progress: 30,
   },
   {
     id: 'jazz',
@@ -266,6 +283,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jeeminhan/jazz',
     description: 'Jazz Quest — guitar trainer and chord progression analyzer.',
     story: '',
+    progress: 20,
   },
   {
     id: 'resume-tailor',
@@ -279,6 +297,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/resume-tailor.html',
     description: 'AI-powered resume optimizer — tailors resumes to job descriptions with PDF generation.',
     story: '',
+    progress: 35,
   },
   {
     id: 'vigil',
@@ -292,6 +311,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/vigil.html',
     description: 'AI focus gatekeeper Chrome extension — blocks distracting sites with intent-based unlocking.',
     story: '',
+    progress: 25,
   },
   {
     id: 'frontier-labs',
@@ -306,6 +326,7 @@ export const projects: Project[] = [
     liveUrl: 'https://frontier-labs-experimental-division.vercel.app',
     description: 'Prototype showcase with video modals and feedback forms.',
     story: '',
+    progress: 85,
   },
   {
     id: 'interview-koro',
@@ -319,6 +340,7 @@ export const projects: Project[] = [
     liveUrl: '/previews/interview-koro.html',
     description: 'WaniKani-style interview prep with leveling system.',
     story: '',
+    progress: 15,
   },
   {
     id: 'weekly-planner',
@@ -332,5 +354,6 @@ export const projects: Project[] = [
     liveUrl: '/previews/weekly-planner.html',
     description: 'Progressive Web App for weekly planning — installable with offline support.',
     story: '',
+    progress: 20,
   },
 ];

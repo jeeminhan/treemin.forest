@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper } from './section-wrapper';
 import { MonitorModal } from '@/components/monitor-modal';
+import { ProgressBar } from '@/components/progress-bar';
 import { projects } from '@/data/projects';
 import type { Project } from '@/data/projects';
 
@@ -82,6 +83,11 @@ function ProjectCard({ project, index, onPreview }: { project: Project; index: n
             ))}
           </div>
         )}
+
+        {/* Progress bar */}
+        <div className="mb-3">
+          <ProgressBar progress={project.progress} />
+        </div>
 
         {/* Story expand */}
         <AnimatePresence>

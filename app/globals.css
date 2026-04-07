@@ -9,9 +9,15 @@
   --text-primary: #1A1A1A;
   --text-secondary: #6B6B6B;
   --text-tertiary: #9E9E9E;
-  --accent: #D4A0A0;
-  --accent-hover: #C48E8E;
-  --accent-subtle: rgba(212, 160, 160, 0.15);
+  --accent: #5B8C5A;
+  --accent-hover: #4A7A49;
+  --accent-subtle: rgba(91, 140, 90, 0.12);
+
+  /* Progress growth palette — seedling to mature */
+  --growth-seed: #C4956A;
+  --growth-sprout: #8BAD6B;
+  --growth-growing: #5B8C5A;
+  --growth-mature: #3D6B3D;
   --border-default: #E5E4E1;
   --border-hover: #D4D3CF;
   --tree-line: #1A1A1A;

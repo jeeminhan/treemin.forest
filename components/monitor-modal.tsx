@@ -173,7 +173,7 @@ export function MonitorModal({ project, onClose }: MonitorModalProps) {
                       key={t}
                       className="px-2 py-0.5 rounded text-[9px] uppercase tracking-wider font-bold shrink-0 hidden sm:inline-flex"
                       style={{
-                        background: 'rgba(212, 160, 160, 0.15)',
+                        background: 'rgba(91, 140, 90, 0.15)',
                         color: '#a8a29e',
                         border: '1px solid #44403c',
                         fontFamily: 'var(--font-mono)',
@@ -189,6 +189,46 @@ export function MonitorModal({ project, onClose }: MonitorModalProps) {
                     {project.year}
                   </span>
                 </div>
+              </div>
+
+              {/* Progress bar */}
+              <div
+                className="flex items-center gap-2 px-3 sm:px-4 py-1.5 shrink-0"
+                style={{ background: '#0c0a09', borderBottom: '1px solid #292524' }}
+              >
+                <div
+                  className="flex-1 h-1 rounded-full overflow-hidden"
+                  style={{ background: '#292524' }}
+                >
+                  <div
+                    className="h-full rounded-full transition-all duration-700"
+                    style={{
+                      width: `${project.progress}%`,
+                      background: project.progress < 30
+                        ? 'var(--growth-seed)'
+                        : project.progress < 60
+                          ? 'var(--growth-sprout)'
+                          : project.progress < 85
+                            ? 'var(--growth-growing)'
+                            : 'var(--growth-mature)',
+                    }}
+                  />
+                </div>
+                <span
+                  className="text-[9px] shrink-0"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    color: project.progress < 30
+                      ? 'var(--growth-seed)'
+                      : project.progress < 60
+                        ? 'var(--growth-sprout)'
+                        : project.progress < 85
+                          ? 'var(--growth-growing)'
+                          : 'var(--growth-mature)',
+                  }}
+                >
+                  {project.progress}%
+                </span>
               </div>
 
               {/* Content area */}
