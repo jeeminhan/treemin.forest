@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 
 const ROOTS = [
-  { id: 'about', label: 'About', x: 140, endX: 50, endY: 120 },
-  { id: 'resume', label: 'Resume', x: 250, endX: 190, endY: 130 },
-  { id: 'ministry', label: 'Ministry', x: 400, endX: 400, endY: 135 },
-  { id: 'creative', label: 'Creative', x: 550, endX: 610, endY: 125 },
-  { id: 'contact', label: 'Contact', x: 660, endX: 750, endY: 115 },
+  { id: 'about', label: 'About', x: 110, endX: 30, endY: 120 },
+  { id: 'resume', label: 'Resume', x: 220, endX: 160, endY: 130 },
+  { id: 'projects', label: 'Projects', x: 330, endX: 310, endY: 135 },
+  { id: 'ministry', label: 'Ministry', x: 440, endX: 460, endY: 130 },
+  { id: 'creative', label: 'Creative', x: 560, endX: 620, endY: 125 },
+  { id: 'contact', label: 'Contact', x: 680, endX: 760, endY: 115 },
 ] as const;
 
 export function Roots() {

@@ -18,7 +18,7 @@ function MobileProjectCard({ project, onSelect }: { project: Project; onSelect: 
       aria-label={`View project: ${project.displayName}`}
     >
       <div
-        className="rounded-full flex items-center justify-center"
+        className="rounded-full flex items-center justify-center overflow-hidden"
         style={{
           width: size,
           height: size,
@@ -27,17 +27,17 @@ function MobileProjectCard({ project, onSelect }: { project: Project; onSelect: 
           opacity: project.tier === 1 ? 1 : 0.7,
         }}
       >
-        {project.tier === 1 && (
-          <div
-            className="rounded-full"
-            style={{
-              width: size - 8,
-              height: size - 8,
-              background: 'var(--accent-subtle)',
-              opacity: 0.4,
-            }}
-          />
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={project.icon}
+          alt=""
+          className="pointer-events-none"
+          style={{
+            width: size * 0.6,
+            height: size * 0.6,
+            opacity: 0.65,
+          }}
+        />
       </div>
       {project.tier <= 2 && (
         <span

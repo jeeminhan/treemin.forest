@@ -63,42 +63,42 @@ export function TreeNode({ node, isSelected, isDimmed, onSelect, onHover, onLeav
         opacity={isSelected ? 1 : 0.7}
       />
 
-      {/* Inner accent ring for tier 1 */}
-      {project.tier === 1 && (
-        <circle
-          cx={cx}
-          cy={cy}
-          r={radius - 3}
-          fill="var(--accent-subtle)"
-          opacity={0.4}
-        />
-      )}
+      {/* Icon inside node */}
+      <image
+        href={project.icon}
+        x={cx - radius * 0.55}
+        y={cy - radius * 0.55}
+        width={radius * 1.1}
+        height={radius * 1.1}
+        opacity={isSelected ? 0.9 : 0.6}
+        style={{ pointerEvents: 'none' }}
+      />
 
-      {/* Label */}
+      {/* Label below node */}
       {showLabel && (
         <text
           x={cx}
-          y={cy + (project.tier === 1 && project.subtitle ? -2 : 1)}
+          y={cy + radius + 9}
           textAnchor="middle"
           dominantBaseline="central"
-          fontSize={project.tier === 1 ? 9.5 : 7.5}
+          fontSize={project.tier === 1 ? 8 : 6.5}
           fontFamily="var(--font-display)"
           fill="var(--text-primary)"
-          opacity={0.9}
+          opacity={0.75}
           style={{ pointerEvents: 'none' }}
         >
           {project.displayName}
         </text>
       )}
 
-      {/* Subtitle for tier 1 */}
+      {/* Subtitle below label for tier 1 */}
       {project.tier === 1 && project.subtitle && (
         <text
           x={cx}
-          y={cy + 9}
+          y={cy + radius + 18}
           textAnchor="middle"
           dominantBaseline="central"
-          fontSize={6.5}
+          fontSize={5.5}
           fontFamily="var(--font-body)"
           fill="var(--text-tertiary)"
           style={{ pointerEvents: 'none' }}

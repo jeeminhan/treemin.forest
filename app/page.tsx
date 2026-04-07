@@ -4,6 +4,7 @@ import { Particles } from '@/components/tree/particles';
 import { AboutSection } from '@/components/sections/about-section';
 import { ResumeSection } from '@/components/sections/resume-section';
 import { MinistrySection } from '@/components/sections/ministry-section';
+import { ProjectsSection } from '@/components/sections/projects-section';
 import { CreativeSection } from '@/components/sections/creative-section';
 import { ContactSection } from '@/components/sections/contact-section';
 
@@ -49,6 +50,7 @@ export default function Home() {
       <div className="relative z-1">
         <AboutSection />
         <ResumeSection />
+        <ProjectsSection />
         <MinistrySection />
         <CreativeSection />
         <ContactSection />
