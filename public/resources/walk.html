@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Walk &mdash; Mockup Overview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #e8e4de; color: #1f1d1a; padding: 40px 48px 60px; }
+  h2 { font-family: Georgia, serif; font-size: 28px; font-weight: 400; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #7a766c; margin-bottom: 40px; }
+</style>
+</head>
+<body>
+<h2>The Walk &mdash; Mockup Pivot Overview</h2>
+<p class="subtitle">All screens at a glance. Student intake &rarr; cultural mirror &rarr; staff dashboard &rarr; priorities &rarr; actions &rarr; event flows.</p>
+
+<style>
+  .overview-grid { display: flex; flex-direction: column; gap: 48px; }
+
+  .flow-section { }
+  .flow-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #8b8478; font-weight: 700; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 1px solid #e2e0db; }
+  .flow-row { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+  .flow-arrow { display: flex; align-items: center; align-self: center; font-size: 20px; color: #c9c5bb; margin: 0 -4px; }
+
+  .browser { border: 1px solid #d8d5cc; border-radius: 14px; background: #fbfaf6; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.04); flex-shrink: 0; }
+  .browser.desktop { width: 420px; }
+  .browser.wide { width: 640px; }
+  .browser.full { width: 100%; max-width: 860px; }
+  .browser.phone { width: 240px; }
+  .browser-bar { background: #f0ede5; padding: 7px 14px; font-family: ui-monospace, monospace; font-size: 10px; color: #7a766c; border-bottom: 1px solid #d8d5cc; display: flex; gap: 6px; align-items: center; }
+  .browser-bar .dots { display: flex; gap: 4px; margin-right: 8px; }
+  .browser-bar .dots span { width: 8px; height: 8px; border-radius: 50%; }
+  .browser-bar .dots span:nth-child(1) { background: #ff6058; }
+  .browser-bar .dots span:nth-child(2) { background: #ffbd2e; }
+  .browser-bar .dots span:nth-child(3) { background: #27ca40; }
+  .bp { padding: 18px 20px 22px; }
+
+  .frame-title { font-family: Georgia, serif; font-size: 10px; color: #8b8478; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+
+  /* Shared component styles */
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 10px; font-weight: 600; }
+  .pill-sage { background: #c5d4c0; color: #2a4a28; }
+  .pill-brown { background: #3b2314; color: #f5f0e8; }
+  .pill-sand { background: #ebe4d6; color: #5a564f; }
+  .pill-terracotta { background: #c4832a; color: white; }
+
+  .avatar-sm { width: 28px; height: 28px; border-radius: 50%; background: #d4cec2; color: #5a564f; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; font-family: Georgia, serif; flex-shrink: 0; }
+  .avatar-md { width: 42px; height: 42px; border-radius: 50%; background: #d4cec2; color: #5a564f; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; font-family: Georgia, serif; flex-shrink: 0; }
+  .avatar-lg { width: 56px; height: 56px; border-radius: 50%; background: #d4cec2; color: #5a564f; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; font-family: Georgia, serif; flex-shrink: 0; }
+
+  .btn-dark { background: #3b2314; color: #f5f0e8; border: none; padding: 10px 22px; border-radius: 99px; font-size: 12px; font-weight: 600; cursor: pointer; }
+  .btn-outline { background: transparent; color: #3b2314; border: 1px solid #c9c5bb; padding: 5px 14px; border-radius: 99px; font-size: 10px; font-weight: 600; }
+
+  .card { background: white; border: 1px solid #e2e0db; border-radius: 12px; padding: 14px 16px; }
+  .section-lbl { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #8b8478; font-weight: 700; }
+
+  .kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .kpi { border: 1px solid #e2e0db; border-radius: 10px; padding: 10px 12px; background: white; }
+  .kpi.em { background: #3b2314; color: #f5f0e8; border-color: #3b2314; }
+  .kpi .kpi-label { font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: #8b8478; font-weight: 700; }
+  .kpi.em .kpi-label { color: #c9c5bb; }
+  .kpi .kpi-value { font-family: Georgia, serif; font-size: 22px; line-height: 1; margin-top: 3px; }
+  .kpi .kpi-sub { font-size: 9px; color: #8b8478; margin-top: 3px; }
+  .kpi.em .kpi-sub { color: #c4832a; }
+
+  .country-row { display: grid; grid-template-columns: 80px 1fr 24px; gap: 6px; align-items: center; padding: 3px 0; font-size: 10px; }
+  .country-row .name { color: #1f1d1a; font-weight: 500; }
+  .country-row .bar-track { height: 6px; background: #f0ede5; border-radius: 3px; overflow: hidden; }
+  .country-row .bar-fill { height: 100%; border-radius: 3px; background: #7a9e77; }
+  .country-row .count { font-family: Georgia, serif; font-size: 11px; text-align: right; }
+
+  .tabs { display: flex; gap: 2px; border-bottom: 1px solid #d8d5cc; margin-bottom: 14px; }
+  .tab { padding: 7px 12px; font-size: 11px; color: #7a766c; border-bottom: 2px solid transparent; font-weight: 500; }
+  .tab.on { color: #1f1d1a; border-bottom-color: #1f1d1a; font-weight: 700; }
+
+  .priority-card { border: 1px solid #e2e0db; border-radius: 14px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start; background: #fbfaf6; }
+  .priority-card + .priority-card { margin-top: 8px; }
+  .priority-body { flex: 1; min-width: 0; }
+  .priority-name { font-family: Georgia, serif; font-size: 14px; font-weight: 600; color: #1f1d1a; }
+  .priority-name .country-tag { font-family: -apple-system, sans-serif; font-size: 10px; color: #8b8478; font-weight: 400; margin-left: 6px; }
+  .priority-signal { font-size: 11px; color: #5a564f; margin-top: 3px; line-height: 1.4; }
+  .priority-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .att-dots { display: flex; gap: 3px; }
+  .att-dots span { width: 6px; height: 6px; border-radius: 50%; background: #e2e0db; }
+  .att-dots span.gold { background: #d4a03c; width: 7px; height: 7px; }
+  .att-dots span.sage { background: #7a9e77; }
+
+  .checkin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .checkin-tile { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 4px; border-radius: 14px; background: white; border: 1px solid #e2e0db; text-align: center; }
+  .checkin-tile .tile-name { font-size: 10px; font-weight: 600; color: #1f1d1a; }
+  .checkin-tile .tile-country { font-size: 9px; color: #8b8478; }
+
+  .emoji-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .emoji-btn { border: 2px solid #e2e0db; border-radius: 14px; padding: 12px; text-align: center; background: white; }
+  .emoji-btn .em { font-size: 28px; display: block; margin-bottom: 4px; }
+  .emoji-btn .em-label { font-size: 10px; font-weight: 600; color: #1f1d1a; }
+
+  .phone-chrome { border: 3px solid #3b2314; border-radius: 28px; padding: 0; overflow: hidden; background: #fbfaf6; }
+  .phone-notch { width: 50px; height: 5px; background: #3b2314; border-radius: 3px; margin: 8px auto 6px; }
+
+  .mirror-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mirror-card { background: #f5f0e8; border-radius: 10px; padding: 10px 12px; }
+  .mirror-label { font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: #8b8478; font-weight: 700; }
+  .mirror-value { font-family: Georgia, serif; font-size: 13px; color: #1f1d1a; margin-top: 3px; }
+
+  .event-card { border: 1px solid #e2e0db; border-radius: 10px; padding: 10px 12px; background: white; margin-top: 6px; }
+  .event-name { font-family: Georgia, serif; font-size: 12px; color: #1f1d1a; font-weight: 600; }
+  .event-meta { font-size: 9px; color: #8b8478; margin-top: 2px; }
+
+  .intake-step { }
+  .intake-dots { display: flex; gap: 4px; margin-bottom: 6px; }
+  .intake-dots span { width: 18px; height: 3px; border-radius: 2px; background: #e2e0db; }
+  .intake-dots span.done { background: #3b2314; }
+  .intake-heading { font-family: Georgia, serif; font-size: 18px; color: #1f1d1a; margin-bottom: 4px; }
+  .intake-sub { font-size: 11px; color: #7a766c; margin-bottom: 12px; }
+  .intake-field { border: 1px solid #e2e0db; border-radius: 10px; padding: 10px 12px; font-size: 11px; color: #8b8478; background: white; margin-bottom: 6px; width: 100%; }
+  .intake-field-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b8478; font-weight: 600; margin-bottom: 4px; }
+
+  .profile-header { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+  .profile-info h3 { font-family: Georgia, serif; font-size: 20px; color: #1f1d1a; margin: 0; }
+  .profile-info .profile-sub { font-size: 10px; color: #8b8478; margin-top: 2px; }
+  .profile-pills { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+
+  .profile-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 14px; margin-top: 14px; }
+  .profile-section { }
+  .profile-quote { font-family: Georgia, serif; font-size: 13px; color: #1f1d1a; font-style: italic; line-height: 1.5; padding: 12px 14px; background: #f5f0e8; border-radius: 10px; margin-top: 6px; }
+  .note-entry { padding: 8px 0 8px 10px; border-left: 2px solid #c4832a; margin-top: 8px; }
+  .note-meta { font-size: 9px; color: #8b8478; }
+  .note-body { font-size: 11px; color: #5a564f; margin-top: 3px; line-height: 1.5; }
+
+  .contact-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0ede5; font-size: 11px; }
+  .contact-label { color: #8b8478; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .contact-value { color: #1f1d1a; }
+
+  .hint { font-size: 11px; color: #5a564f; margin-top: 24px; line-height: 1.5; padding: 12px; background: rgba(74,111,165,0.06); border-left: 3px solid #4a6fa5; border-radius: 4px; }
+</style>
+
+<div class="overview-grid">
+
+<!-- &#9472;&#9472;&#9472; ENTRY &#9472;&#9472;&#9472; -->
+<div class="flow-section">
+  <div class="flow-label">Entry point</div>
+  <div class="flow-row">
+    <div class="browser desktop">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> localhost:3000/mockup</div>
+      <div class="bp" style="padding:40px 32px; text-align:center;">
+        <div style="font-family:Georgia,serif; font-size:24px; color:#1f1d1a; margin-bottom:32px;">The Walk</div>
+        <div style="display:flex; gap:16px; justify-content:center;">
+          <div style="background:#f5f0e8; border-radius:14px; padding:28px 36px; cursor:pointer; text-align:center; flex:1; max-width:180px;">
+            <div style="font-family:Georgia,serif; font-size:16px; color:#1f1d1a; margin-bottom:4px;">Check in</div>
+            <div style="font-size:10px; color:#8b8478;">for students</div>
+          </div>
+          <div style="background:#3b2314; border-radius:14px; padding:28px 36px; cursor:pointer; text-align:center; flex:1; max-width:180px;">
+            <div style="font-family:Georgia,serif; font-size:16px; color:#f5f0e8; margin-bottom:4px;">Portal</div>
+            <div style="font-size:10px; color:#c9c5bb;">for staff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- &#9472;&#9472;&#9472; STUDENT FLOW &#9472;&#9472;&#9472; -->
+<div class="flow-section">
+  <div class="flow-label">Student flow</div>
+  <div class="flow-row">
+
+    <!-- Welcome -->
+    <div class="browser desktop">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /mockup/student</div>
+      <div class="bp">
+        <span class="pill pill-sage" style="margin-bottom:10px; display:inline-block">FOR STUDENTS</span>
+        <div style="font-family:Georgia,serif; font-size:22px; color:#1f1d1a; margin-bottom:8px">Welcome &mdash; tell us a little about yourself.</div>
+        <div style="font-size:11px; color:#7a766c; line-height:1.6; margin-bottom:14px">
+          Six short questions. About 2 minutes. We ask because:
+        </div>
+        <ul style="font-size:11px; color:#5a564f; line-height:1.8; padding-left:18px; margin-bottom:18px;">
+          <li>You'll get a small picture of who you are in this season.</li>
+          <li>Your campus team plans events that fit who's actually here.</li>
+          <li>Nothing is shared without your permission.</li>
+        </ul>
+        <button class="btn-dark" style="width:100%">Begin &rarr;</button>
+        <div style="text-align:center; font-size:10px; color:#8b8478; margin-top:10px">Already filled this out? Open the link in your invite email.</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">&rarr;</div>
+
+    <!-- Intake -->
+    <div class="browser desktop">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /mockup/student/intake</div>
+      <div class="bp">
+        <div class="intake-step">
+          <div class="intake-dots"><span class="done"></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div style="font-size:10px; color:#8b8478; margin-bottom:10px">1 OF 6</div>
+          <div class="intake-heading">Where are you from?</div>
+          <div class="intake-sub">The place that still feels like 'home' when you say the word.</div>
+          <div class="intake-field-label">Country</div>
+          <div class="intake-field">e.g. China, Korea, Nigeria&hellip;</div>
+          <div class="intake-field-label">How long have you been away? (optional)</div>
+          <div class="intake-field">e.g. 3 months, 2 years</div>
+          <div style="text-align:right; margin-top:16px"><button class="btn-dark">Next &rarr;</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">&rarr;</div>
+
+    <!-- Result -->
+    <div class="browser desktop">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /mockup/student/result?student=mei</div>
+      <div class="bp">
+        <span class="pill pill-sand" style="margin-bottom:8px; display:inline-block">YOUR PICTURE</span>
+        <div style="font-family:Georgia,serif; font-size:20px; color:#1f1d1a; margin-bottom:4px">Hi Mei &mdash; here's a small picture of you.</div>
+        <div style="font-size:11px; color:#7a766c; margin-bottom:14px">From your answers. Yours to keep, share, or ignore.</div>
+        <div class="section-lbl" style="margin-bottom:6px">CULTURAL MIRROR</div>
+        <div class="mirror-grid">
+          <div class="mirror-card"><div class="mirror-label">FROM</div><div class="mirror-value">China &#127464;&#127475;</div></div>
+          <div class="mirror-card"><div class="mirror-label">SPIRITUAL BACKGROUND</div><div class="mirror-value">Buddhist</div></div>
+          <div class="mirror-card"><div class="mirror-label">SEASON</div><div class="mirror-value">Settling in</div></div>
+          <div class="mirror-card"><div class="mirror-label">HOME TASTES LIKE</div><div class="mirror-value">&#40635;&#36771; &middot; table gatherings</div></div>
+        </div>
+        <div class="section-lbl" style="margin:14px 0 4px">FROM YOUR CAMPUS TEAM</div>
+        <div style="font-size:11px; color:#7a766c; margin-bottom:6px">Two things this month that fit who you are.</div>
+        <div class="event-card"><div class="event-name">Lunar New Year dinner</div><div class="event-meta">Sat, Apr 25 &middot; Alpha House</div></div>
+        <div class="event-card"><div class="event-name">Spring BBQ</div><div class="event-meta">Thu, Apr 30 &middot; Wilson Plaza</div></div>
+        <div style="text-align:center; font-family:Georgia,serif; font-style:italic; font-size:13px; color:#5a564f; margin-top:18px; padding-top:14px; border-top:1px solid #e2e0db">You're welcome here.<br><span style="font-size:10px; font-style:normal; letter-spacing:0.1em; text-transform:uppercase; color:#8b8478">&mdash; THE CAMPUS TEAM</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- &#9472;&#9472;&#9472; STAFF DASHBOARD &#9472;&#9472;&#9472; -->
+<div class="flow-section">
+  <div class="flow-label">Staff dashboard</div>
+  <div class="flow-row">
+    <div class="browser full">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> localhost:3000/mockup/staff</div>
+      <div class="bp">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px">
+          <div>
+            <div style="font-family:Georgia,serif; font-size:20px; color:#1f1d1a">The Walk &middot; staff</div>
+            <div style="font-size:9px; color:#8b8478; letter-spacing:0.1em; text-transform:uppercase">UCLA &middot; campus ministry &middot; last 90 days</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px"><span style="font-size:11px; color:#5a564f">Sarah</span><div class="avatar-sm">S</div></div>
+        </div>
+        <div class="tabs">
+          <div class="tab on">Aggregate</div>
+          <div class="tab">Priorities</div>
+          <div class="tab">Actions</div>
+        </div>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="kpi-label">STUDENTS</div><div class="kpi-value">20</div><div class="kpi-sub">who filled the intake</div></div>
+          <div class="kpi"><div class="kpi-label">COUNTRIES</div><div class="kpi-value">14</div><div class="kpi-sub">top: Japan</div></div>
+          <div class="kpi"><div class="kpi-label">LANGUAGES</div><div class="kpi-value">14</div><div class="kpi-sub">across the group</div></div>
+          <div class="kpi em"><div class="kpi-label">REACHABLE</div><div class="kpi-value">20</div><div class="kpi-sub">100% gave us a way to invite them</div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px;">
+          <div>
+            <div class="section-lbl">BY COUNTRY</div>
+            <div style="font-size:9px; color:#8b8478; margin:2px 0 8px">Top 8 of 14</div>
+            <div class="country-row"><span class="name">&#127471;&#127477; Japan</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="count">3</span></div>
+            <div class="country-row"><span class="name">&#127470;&#127475; India</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="count">3</span></div>
+            <div class="country-row"><span class="name">&#127464;&#127475; China</span><div class="bar-track"><div class="bar-fill" style="width:67%"></div></div><span class="count">2</span></div>
+            <div class="country-row"><span class="name">&#127472;&#127479; S. Korea</span><div class="bar-track"><div class="bar-fill" style="width:67%"></div></div><span class="count">2</span></div>
+            <div class="country-row"><span class="name">&#127481;&#127484; Taiwan</span><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><span class="count">1</span></div>
+            <div class="country-row"><span class="name">&#127475;&#127468; Nigeria</span><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><span class="count">1</span></div>
+          </div>
+          <div>
+            <div class="section-lbl">SPIRITUAL BACKGROUND</div>
+            <div style="font-size:9px; color:#8b8478; margin:2px 0 8px">As people described themselves.</div>
+            <div style="display:flex; height:18px; border-radius:4px; overflow:hidden; font-size:8px; color:white; font-weight:700">
+              <div style="background:#7a9e77; flex:5; display:flex; align-items:center; justify-content:center">5</div>
+              <div style="background:#8b6e3d; flex:4; display:flex; align-items:center; justify-content:center">4</div>
+              <div style="background:#999; flex:4; display:flex; align-items:center; justify-content:center">4</div>
+              <div style="background:#c4832a; flex:2; display:flex; align-items:center; justify-content:center">2</div>
+              <div style="background:#d4a03c; flex:2; display:flex; align-items:center; justify-content:center">2</div>
+              <div style="background:#5a564f; flex:2; display:flex; align-items:center; justify-content:center">2</div>
+              <div style="background:#d8d5cc; flex:1"></div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; font-size:9px; color:#5a564f">
+              <span>&#9679; Christian 5</span> <span style="color:#8b6e3d">&#9679; Muslim 4</span> <span style="color:#999">&#9679; No religion 4</span> <span style="color:#c4832a">&#9679; Buddhist 2</span> <span style="color:#d4a03c">&#9679; Hindu 2</span>
+            </div>
+            <div class="section-lbl" style="margin-top:16px">LIFECYCLE</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px">
+              <div style="background:#f5f0e8; border-radius:8px; padding:8px 10px"><div style="font-size:9px; color:#8b8478">Just arrived</div><div style="font-family:Georgia,serif; font-size:16px">5</div></div>
+              <div style="background:#f5f0e8; border-radius:8px; padding:8px 10px"><div style="font-size:9px; color:#8b8478">Settling in</div><div style="font-family:Georgia,serif; font-size:16px">7</div></div>
+              <div style="background:#f5f0e8; border-radius:8px; padding:8px 10px"><div style="font-size:9px; color:#8b8478">Building a life</div><div style="font-family:Georgia,serif; font-size:16px">6</div></div>
+              <div style="background:#f5f0e8; border-radius:8px; padding:8px 10px"><div style="font-size:9px; color:#8b8478">Heading home</div><div style="font-family:Georgia,serif; font-size:16px">2</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- &#9472;&#9472;&#9472; PRIORITIES &#9472;&#9472;&#9472; -->
+<div class="flow-section">
+  <div class="flow-label">Priorities &rarr; Student profile</div>
+  <div class="flow-row">
+
+    <div class="browser desktop" style="width:480px">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /mockup/staff/priorities</div>
+      <div class="bp">
+        <div style="font-family:Georgia,serif; font-size:22px; color:#1f1d1a; margin-bottom:4px">Who needs you this week</div>
+        <div style="font-size:11px; color:#7a766c; margin-bottom:12px">9 students surfaced. Tap a name to see their context.</div>
+        <div style="display:flex; gap:4px; margin-bottom:14px; flex-wrap:wrap">
+          <span class="pill pill-brown">All 9</span>
+          <span class="pill pill-sand">First-event follow-up 4</span>
+          <span class="pill pill-sand">Drifted 0</span>
+          <span class="pill pill-sand">New & quiet 3</span>
+          <span class="pill pill-sand">Heading home 2</span>
+        </div>
+        <div class="section-lbl" style="margin-bottom:6px">FIRST-EVENT FOLLOW-UP</div>
+        <div class="priority-card">
+          <div class="avatar-md">M</div>
+          <div class="priority-body">
+            <div class="priority-name">Mei L.<span class="country-tag">China</span></div>
+            <div class="priority-signal">First event was Hotpot & Homework &mdash; 6d ago</div>
+            <div class="priority-bottom"><div class="att-dots"><span class="gold"></span><span></span><span></span><span></span><span></span></div><button class="btn-outline">Send a note</button></div>
+          </div>
+        </div>
+        <div class="priority-card">
+          <div class="avatar-md">H</div>
+          <div class="priority-body">
+            <div class="priority-name">Hiroshi T.<span class="country-tag">Japan</span></div>
+            <div class="priority-signal">First event was Hotpot & Homework &mdash; 6d ago</div>
+            <div class="priority-bottom"><div class="att-dots"><span class="gold"></span><span></span><span></span><span></span><span></span></div><button class="btn-outline">Send a note</button></div>
+          </div>
+        </div>
+        <div class="section-lbl" style="margin:14px 0 6px">NEW & QUIET</div>
+        <div class="priority-card">
+          <div class="avatar-md">A</div>
+          <div class="priority-body">
+            <div class="priority-name">Ahmed K.<span class="country-tag">Saudi Arabia</span></div>
+            <div class="priority-signal">New intake &mdash; 11d ago, no event yet</div>
+            <div class="priority-bottom"><div class="att-dots"><span></span><span></span><span></span><span></span><span></span></div><button class="btn-outline">Invite to event</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">&rarr;</div>
+
+    <!-- Student profile -->
+    <div class="browser desktop" style="width:480px">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /mockup/staff/student/mei</div>
+      <div class="bp">
+        <div class="profile-header">
+          <div class="avatar-lg">M</div>
+          <div class="profile-info" style="flex:1">
+            <h3>Mei L.</h3>
+            <div class="profile-sub">&#127464;&#127475; China &middot; Chemistry &middot; Year 2</div>
+            <div class="profile-pills">
+              <span class="pill pill-sand">Settling in</span>
+              <span class="pill pill-sand">Open but cautious</span>
+              <span class="pill pill-sand">First event 2026-04-09</span>
+            </div>
+          </div>
+          <button class="btn-dark" style="padding:8px 16px; font-size:11px">Reach out</button>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-section">
+            <div class="section-lbl">WHAT THEY SHARED</div>
+            <div class="profile-quote">"Mei misses the warmth of the table &mdash; shared meals that felt like belonging."</div>
+            <ul style="font-size:10px; color:#5a564f; line-height:1.7; margin-top:8px; padding-left:14px">
+              <li>Grew up with big family hotpot on weekends</li>
+              <li>Buddhism shapes her sense of rhythm and quiet</li>
+              <li>Homesick especially around holidays</li>
+            </ul>
+            <div class="section-lbl" style="margin-top:14px">CONVERSATION NOTES</div>
+            <div class="note-entry"><div class="note-meta">2026-04-10 &middot; Sarah</div><div class="note-body">Mei stayed after the hotpot to help clean up. Talked about how the food reminded her of home.</div></div>
+            <div class="note-entry"><div class="note-meta">2026-04-14 &middot; Sarah</div><div class="note-body">She's excited about Lunar New Year dinner. Asked if she could help cook.</div></div>
+          </div>
+          <div class="profile-section">
+            <div class="section-lbl">ATTENDED EVENTS (1)</div>
+            <div class="event-card"><div class="event-name">Hotpot & Homework</div><div class="event-meta">2026-04-09</div></div>
+            <div class="section-lbl" style="margin-top:14px">CONTACT</div>
+            <div class="contact-row"><span class="contact-label">EMAIL</span><span class="contact-value">mei.l@school.edu</span></div>
+            <div class="contact-row"><span class="contact-label">WECHAT</span><span class="contact-value">mei_lcd</span></div>
+            <div class="contact-row"><span class="contact-label">PREFERRED</span><span class="contact-value">Email</span></div>
+            <div class="contact-row"><span class="contact-label">CHECK-INS</span><span class="contact-value">Opted in</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- &#9472;&#9472;&#9472; MOBILE EVENT &#9472;&#9472;&#9472; -->
+<div class="flow-section">
+  <div class="flow-label">Mobile event screens</div>
+  <div class="flow-row" style="gap:32px">
+
+    <!-- Check-in -->
+    <div class="browser phone">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /event/[id]/checkin</div>
+      <div class="phone-chrome">
+        <div class="phone-notch"></div>
+        <div style="padding:14px 16px;">
+          <div style="font-size:9px; color:#8b8478; letter-spacing:0.12em; text-transform:uppercase">CHECK IN</div>
+          <div style="font-family:Georgia,serif; font-size:16px; color:#1f1d1a; margin:4px 0 2px">Hotpot & Homework</div>
+          <div style="font-size:9px; color:#8b8478; margin-bottom:12px">Apr 9 &middot; Alpha House</div>
+          <div style="font-size:8px; color:#8b8478; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px">TAP YOUR FACE</div>
+          <div class="checkin-grid">
+            <div class="checkin-tile"><div class="avatar-sm">D</div><div class="tile-name">Daniel</div><div class="tile-country">Nigeria</div></div>
+            <div class="checkin-tile"><div class="avatar-sm">F</div><div class="tile-name">Fatima</div><div class="tile-country">Pakistan</div></div>
+            <div class="checkin-tile"><div class="avatar-sm">H</div><div class="tile-name">Hiroshi</div><div class="tile-country">Japan</div></div>
+            <div class="checkin-tile"><div class="avatar-sm">J</div><div class="tile-name">Ji-woo</div><div class="tile-country">S. Korea</div></div>
+            <div class="checkin-tile"><div class="avatar-sm">L</div><div class="tile-name">Lin</div><div class="tile-country">Taiwan</div></div>
+            <div class="checkin-tile"><div class="avatar-sm">M</div><div class="tile-name">Mei</div><div class="tile-country">China</div></div>
+          </div>
+          <div style="margin-top:14px; text-align:center; font-size:11px; color:#7a766c">First time here?</div>
+          <button class="btn-dark" style="width:100%; margin-top:8px; padding:12px">I'm new &mdash; start intake</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-arrow">&rarr;</div>
+
+    <!-- Feedback -->
+    <div class="browser phone">
+      <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div> /event/[id]/feedback</div>
+      <div class="phone-chrome">
+        <div class="phone-notch"></div>
+        <div style="padding:14px 16px;">
+          <div style="display:flex; gap:3px; margin-bottom:10px">
+            <span style="width:50px; height:3px; border-radius:2px; background:#3b2314; display:inline-block"></span>
+            <span style="width:50px; height:3px; border-radius:2px; background:#e2e0db; display:inline-block"></span>
+            <span style="width:50px; height:3px; border-radius:2px; background:#e2e0db; display:inline-block"></span>
+          </div>
+          <div style="font-family:Georgia,serif; font-size:18px; color:#1f1d1a; margin-bottom:14px">How was Hotpot & Homework?</div>
+          <div class="emoji-grid">
+            <div class="emoji-btn"><span class="em">&#128528;</span><span class="em-label">Not for me</span></div>
+            <div class="emoji-btn"><span class="em">&#128578;</span><span class="em-label">It was ok</span></div>
+            <div class="emoji-btn"><span class="em">&#128522;</span><span class="em-label">Really good</span></div>
+            <div class="emoji-btn"><span class="em">&#129392;</span><span class="em-label">I want more</span></div>
+          </div>
+          <div style="text-align:right; margin-top:16px"><button class="btn-dark" style="opacity:0.4">Next</button></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<div class="hint">
+  <strong>Built & running.</strong> All screens above are live at <code>localhost:3000/mockup/*</code>. Static seed data &mdash; 20 students, 6 events, 14 countries. No persistence, no API. The existing app at <code>/</code> is untouched.
+</div>
+
+</body>
+</html>

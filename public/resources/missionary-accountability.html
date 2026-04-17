@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup Artboard &mdash; Missionary Accountability for ISM</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #eceae4;
+    background-image:
+      linear-gradient(rgba(31,28,24,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31,28,24,.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: #1f1c18;
+    padding: 48px 40px 96px;
+    min-width: 2100px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  h1.artboard-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+  p.artboard-sub {
+    font-size: 13px;
+    color: #6b645a;
+    margin: 0 0 56px;
+    max-width: 820px;
+  }
+  .artboard-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: -32px 0 48px;
+    font-size: 11px;
+    color: #6b645a;
+  }
+  .artboard-legend .swatch {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: -1px;
+  }
+
+  /* flow section */
+  .flow { margin-bottom: 64px; }
+  .flow-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a7b66;
+    font-weight: 700;
+  }
+  .flow-label::before {
+    content: '';
+    width: 10px; height: 10px;
+    background: #c78a2d;
+    border-radius: 50%;
+    flex: 0 0 10px;
+  }
+  .flow-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, #c4bdb0 0 4px, transparent 4px 8px);
+  }
+  .flow-sub {
+    font-size: 12px;
+    color: #6b645a;
+    margin: 0 0 28px 22px;
+    font-weight: 400;
+  }
+
+  .rail {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+  .rail-arrow {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 140px;
+    gap: 6px;
+    min-width: 60px;
+  }
+  .rail-arrow-glyph {
+    font-size: 26px;
+    color: #8a7b66;
+    line-height: 1;
+  }
+  .rail-arrow-label {
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a7b66;
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  /* frame wrap + caption */
+  .frame-wrap {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .frame-caption {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a7b66;
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .frame-caption b { color: #1f1c18; font-weight: 700; letter-spacing: 0; text-transform: none; font-size: 11px; display: block; margin-bottom: 2px; }
+
+  /* desktop chrome */
+  .frame {
+    background: #f7f4ee;
+    border-radius: 12px;
+    box-shadow:
+      0 1px 0 #d7cfc0,
+      0 8px 16px -6px rgba(31,28,24,.08),
+      0 28px 60px -32px rgba(31,28,24,.35);
+    overflow: hidden;
+    position: relative;
+  }
+  .frame-desktop { width: 420px; }
+  .chrome-desktop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: #efe9dd;
+    border-bottom: 1px solid #e1d9c8;
+  }
+  .chrome-dot { width: 9px; height: 9px; border-radius: 50%; }
+  .chrome-dot.red { background: #ee6a5f; }
+  .chrome-dot.yellow { background: #f5bd4f; }
+  .chrome-dot.green { background: #61c554; }
+  .chrome-url {
+    flex: 1;
+    margin-left: 10px;
+    font-size: 10px;
+    color: #7a7167;
+    background: #f7f4ee;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* phone chrome */
+  .frame-phone {
+    width: 240px;
+    border-radius: 32px;
+    border: 7px solid #1f1c18;
+    background: #1f1c18;
+    box-shadow:
+      inset 0 0 0 1px #3a332a,
+      0 28px 60px -28px rgba(31,28,24,.45);
+  }
+  .chrome-phone-top {
+    background: #1f1c18;
+    padding: 6px 14px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    position: relative;
+  }
+  .chrome-phone-notch {
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 14px;
+    background: #000;
+    border-radius: 0 0 10px 10px;
+  }
+  .chrome-phone-time { position: relative; z-index: 2; }
+  .chrome-phone-status { position: relative; z-index: 2; letter-spacing: 0.04em; }
+  .phone-screen {
+    background: #f7f4ee;
+    border-radius: 4px 4px 22px 22px;
+    overflow: hidden;
+  }
+  .chrome-phone-bottom {
+    background: #1f1c18;
+    padding: 4px 0 6px;
+    display: flex;
+    justify-content: center;
+  }
+  .chrome-phone-bar { width: 90px; height: 4px; background: #f7f4ee; border-radius: 2px; opacity: 0.9; }
+
+  /* frame body */
+  .body-d { padding: 16px 18px; font-size: 11px; line-height: 1.5; }
+  .body-p { padding: 12px 14px; font-size: 10px; line-height: 1.45; }
+
+  .crumb {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a7b66;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .crumb b { color: #1f1c18; font-weight: 700; }
+
+  h2.hero-title {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 2px;
+    line-height: 1.15;
+  }
+  .body-p h2.hero-title { font-size: 13px; }
+  .hero-sub { font-size: 9.5px; color: #6b645a; margin: 0 0 14px; }
+
+  /* pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.3;
+  }
+  .pill::before { content: ''; width: 4px; height: 4px; border-radius: 50%; }
+  .pill.win { background: #d8f1e3; color: #135c39; }
+  .pill.win::before { background: #2fa971; }
+  .pill.prayer { background: #ece0fb; color: #55277a; }
+  .pill.prayer::before { background: #8957d6; }
+  .pill.challenge { background: #fbdfe4; color: #8a1230; }
+  .pill.challenge::before { background: #d33558; }
+  .pill.need { background: #fce5c4; color: #8a4a0a; }
+  .pill.need::before { background: #d98920; }
+  .pill.general { background: #e7e0d1; color: #5a5042; }
+  .pill.general::before { background: #8a7b66; }
+
+  /* flag pills (supervisor) */
+  .flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 8.5px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .flag::before { content: ''; width: 4px; height: 4px; border-radius: 50%; }
+  .flag.scattered { background: #fce5c4; color: #8a4a0a; }
+  .flag.scattered::before { background: #d98920; }
+  .flag.quiet { background: #fbdfe4; color: #8a1230; }
+  .flag.quiet::before { background: #d33558; }
+  .flag.strong { background: #d8f1e3; color: #135c39; }
+  .flag.strong::before { background: #2fa971; }
+  .flag.new { background: #dde6ff; color: #1e3a8a; }
+  .flag.new::before { background: #1e3a8a; }
+  .flag.streak { background: #fff4e0; color: #8a4a0a; border: 1px solid #f2d69a; }
+
+  /* visibility pills */
+  .vis {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 8.5px;
+    font-weight: 600;
+    border: 1px solid;
+    line-height: 1.3;
+    background: transparent;
+  }
+  .vis.private { border-color: #1f1c18; color: #1f1c18; }
+  .vis.private.active { background: #1f1c18; color: #fff; }
+  .vis.supervisor { border-color: #1e3a8a; color: #1e3a8a; }
+  .vis.supervisor.active { background: #1e3a8a; color: #fff; }
+  .vis.supporters { border-color: #b8651a; color: #b8651a; }
+  .vis.supporters.active { background: #d98920; border-color: #d98920; color: #fff; }
+
+  /* streak */
+  .streak-grid { display: flex; gap: 4px; align-items: flex-end; }
+  .streak-cell {
+    width: 20px; height: 20px; border-radius: 6px; background: #efe6d3;
+    display: flex; align-items: flex-end; justify-content: center;
+    font-size: 7px; color: #8a7b66; padding-bottom: 2px;
+  }
+  .streak-cell.on { background: #d98920; color: #fff; font-weight: 700; }
+  .streak-cell.today { box-shadow: 0 0 0 2px #1f1c18; }
+
+  /* cards */
+  .card {
+    background: #fff;
+    border: 1px solid #e7e0d1;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .card + .card { margin-top: 8px; }
+  .card-label {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a7b66;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  /* kpi row */
+  .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 8px 0 12px; }
+  .kpi {
+    background: #fff; border: 1px solid #e7e0d1; border-radius: 8px; padding: 8px 10px;
+  }
+  .kpi-label { font-size: 7.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8a7b66; font-weight: 700; }
+  .kpi-value { font-size: 20px; font-weight: 700; margin-top: 2px; letter-spacing: -0.02em; line-height: 1; }
+  .kpi-hint { font-size: 8px; color: #8a7b66; margin-top: 2px; }
+
+  /* supervisor note */
+  .sup-note {
+    background: #0f1b3d;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .sup-note-label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: #e4c670; font-weight: 700; margin-bottom: 4px; }
+  .sup-note-quote { font-size: 10px; line-height: 1.45; font-style: italic; }
+  .sup-note-from { font-size: 9px; color: #e4c670; margin-top: 6px; }
+
+  /* buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 9.5px;
+    font-weight: 700;
+    border: none;
+    cursor: default;
+    letter-spacing: 0.01em;
+  }
+  .btn-lg { padding: 7px 14px; font-size: 10.5px; }
+  .btn.primary { background: #d98920; color: #fff; }
+  .btn.dark { background: #1f1c18; color: #fff; }
+  .btn.ghost { background: #fff; color: #1f1c18; border: 1px solid #d7cfc0; }
+
+  /* row alignments */
+  .row { display: flex; align-items: center; gap: 8px; }
+  .row-between { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .row-top { display: flex; align-items: flex-start; gap: 8px; }
+
+  /* entry row */
+  .entry-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eae3d3;
+  }
+  .entry-row:first-child { padding-top: 0; }
+  .entry-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .entry-text { flex: 1; font-size: 10px; line-height: 1.45; }
+  .entry-meta { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
+
+  /* avatars */
+  .ava {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #e7e0d1; color: #5a5042;
+    font-size: 9px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex: 0 0 24px;
+    letter-spacing: 0.02em;
+  }
+  .ava-sm { width: 18px; height: 18px; font-size: 8px; flex-basis: 18px; }
+  .ava.amber { background: #fce5c4; color: #8a4a0a; }
+  .ava.rose { background: #fbdfe4; color: #8a1230; }
+  .ava.green { background: #d8f1e3; color: #135c39; }
+  .ava.blue { background: #dde6ff; color: #1e3a8a; }
+  .ava.violet { background: #ece0fb; color: #55277a; }
+  .ava.neutral { background: #e7e0d1; color: #5a5042; }
+
+  /* roster */
+  .roster-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eae3d3;
+  }
+  .roster-row:last-child { border-bottom: 0; }
+  .roster-name { font-size: 10.5px; font-weight: 700; line-height: 1.2; }
+  .roster-campus { font-size: 9px; color: #8a7b66; }
+  .roster-tail { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+  .muted { color: #a8a094; }
+
+  /* conversation */
+  .conv { display: flex; flex-direction: column; gap: 6px; }
+  .turn { display: flex; align-items: flex-end; gap: 5px; }
+  .turn.me { justify-content: flex-end; }
+  .bubble {
+    max-width: 78%;
+    padding: 6px 9px;
+    border-radius: 12px;
+    font-size: 9.5px;
+    line-height: 1.42;
+  }
+  .bubble.ai { background: #fff; border: 1px solid #eae3d3; border-bottom-left-radius: 4px; }
+  .bubble.me { background: #1f1c18; color: #fff; border-bottom-right-radius: 4px; }
+  .avatar-bubble {
+    width: 16px; height: 16px; border-radius: 50%;
+    font-size: 7px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex: 0 0 16px;
+  }
+  .avatar-bubble.ai { background: #d98920; color: #fff; }
+  .avatar-bubble.me { background: #1f1c18; color: #fff; }
+
+  /* inputs */
+  .field {
+    background: #fff; border: 1px solid #dcd3bf; border-radius: 8px;
+    padding: 6px 8px;
+    display: flex; align-items: center; gap: 6px;
+    font-size: 9.5px;
+    color: #8a7b66;
+  }
+  .field input { border: none; outline: none; background: transparent; font-size: 9.5px; width: 100%; font-family: inherit; }
+  .field .send {
+    margin-left: auto;
+    background: #d98920; color: #fff;
+    padding: 3px 9px; border-radius: 999px; font-size: 9px; font-weight: 700;
+  }
+  .textarea {
+    background: #0f0d0b;
+    color: #e9e3d4;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 9.5px;
+    line-height: 1.4;
+    min-height: 44px;
+    border: 1px solid #2a2520;
+  }
+
+  /* review count tiles */
+  .count-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 8px; }
+  .count-tile { background: #fff; border: 1px solid #e7e0d1; border-radius: 6px; padding: 7px 8px; }
+  .count-label { font-size: 7.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8a7b66; font-weight: 700; line-height: 1; }
+  .count-value { font-size: 18px; font-weight: 700; margin-top: 3px; line-height: 1; letter-spacing: -0.02em; }
+  .count-hint { font-size: 7.5px; color: #8a7b66; margin-top: 2px; line-height: 1.2; }
+
+  .review-card {
+    background: #fff; border: 1px solid #e7e0d1; border-radius: 8px;
+    padding: 8px 10px; margin-bottom: 6px;
+  }
+  .review-card .row-between + .entry-text { margin-top: 6px; }
+  .review-pill-row { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+
+  /* david: student cards */
+  .look-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+
+  /* david: supervisor-only highlight */
+  .entry-highlight { background: #eef2ff; border-color: #c5d0f0; }
+
+  /* composer */
+  .composer {
+    background: #1f1c18; color: #fff; border-radius: 8px; padding: 10px 12px;
+  }
+  .composer-label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: #e4c670; font-weight: 700; margin-bottom: 4px; }
+  .composer-hint { font-size: 8.5px; color: #b6a988; margin-bottom: 6px; }
+
+  /* inbox */
+  .inbox { display: grid; grid-template-columns: 112px 1fr; background: #fff; border: 1px solid #e7e0d1; border-radius: 8px; overflow: hidden; }
+  .inbox-sidebar { background: #f4efe4; padding: 8px 0; border-right: 1px solid #e7e0d1; }
+  .inbox-label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a7b66; font-weight: 700; padding: 0 10px 6px; display: flex; justify-content: space-between; align-items: center; }
+  .inbox-badge { background: #1f1c18; color: #fff; font-size: 7.5px; padding: 1px 6px; border-radius: 999px; font-weight: 700; }
+  .inbox-item { padding: 6px 10px; border-left: 3px solid transparent; }
+  .inbox-item.active { background: #fff; border-left-color: #d98920; }
+  .inbox-from { font-weight: 700; font-size: 9px; }
+  .inbox-from .when { float: right; color: #8a7b66; font-weight: 500; font-size: 8px; }
+  .inbox-subject { font-size: 8.5px; color: #3a342c; margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+  .inbox-snippet { font-size: 8px; color: #8a7b66; margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .inbox-body { padding: 12px 14px; font-size: 10px; line-height: 1.55; }
+  .inbox-subject-line { font-size: 13px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .inbox-meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eae3d3; }
+  .inbox-meta { font-size: 9px; line-height: 1.3; }
+  .inbox-meta .email { color: #8a7b66; }
+  .inbox-body p { margin: 0 0 8px; font-size: 9.5px; }
+  .prayer-box { background: #fff7df; border: 1px solid #efd97f; border-radius: 6px; padding: 8px 10px; margin: 8px 0; font-size: 9px; line-height: 1.5; }
+  .prayer-box h4 { margin: 0 0 4px; font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a4a0a; font-weight: 700; }
+  .prayer-box ul { margin: 0; padding-left: 14px; }
+
+  /* reconcile row under linda */
+  .recon-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .recon-card { border-radius: 8px; padding: 10px; font-size: 9.5px; line-height: 1.45; }
+  .recon-card.dark { background: #1f1c18; color: #fff; }
+  .recon-card.light { background: #fff; border: 1px solid #e7e0d1; }
+  .recon-card h4 { margin: 0 0 6px; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: #e4c670; font-weight: 700; }
+  .recon-card.light h4 { color: #8a7b66; }
+  .recon-line { margin-bottom: 3px; }
+
+  /* tiny chart for dashboard */
+  .chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 44px; padding: 4px 0; }
+  .chart-bars .bar {
+    width: 10px; border-radius: 3px 3px 0 0;
+    background: #d98920;
+  }
+  .chart-bars .bar.muted { background: #e7e0d1; }
+
+  /* helpers */
+  .mt-6 { margin-top: 6px; } .mt-8 { margin-top: 8px; } .mt-10 { margin-top: 10px; } .mt-12 { margin-top: 12px; }
+  .mb-6 { margin-bottom: 6px; } .mb-8 { margin-bottom: 8px; } .mb-10 { margin-bottom: 10px; }
+  .small { font-size: 9px; color: #6b645a; }
+  .xs { font-size: 8.5px; color: #8a7b66; }
+  .strong { font-weight: 700; }
+
+</style>
+</head>
+<body>
+
+<h1 class="artboard-title">Missionary Accountability for ISM &mdash; mockup artboard</h1>
+<p class="artboard-sub">Three flows, seven screens. One honest reflection from Maya on Tuesday night becomes three faithful outputs by Monday morning &mdash; a live view for her supervisor, a real update for her partners, and a record she can return to.</p>
+
+<div class="artboard-legend">
+  <span><span class="swatch" style="background:#d98920"></span>Amber &mdash; action / active / streak</span>
+  <span><span class="swatch" style="background:#0f1b3d"></span>Deep blue &mdash; supervisor-only</span>
+  <span><span class="swatch" style="background:#d8f1e3"></span>Green &mdash; win / strong week</span>
+  <span><span class="swatch" style="background:#fbdfe4"></span>Rose &mdash; challenge / quiet / flag</span>
+  <span><span class="swatch" style="background:#fff7df;border:1px solid #efd97f"></span>Yellow &mdash; prayer / partner digest</span>
+</div>
+
+<!-- ============================================================= -->
+<!-- FLOW 01 &mdash; MAYA                                           -->
+<!-- ============================================================= -->
+<section class="flow">
+  <div class="flow-label">01 &nbsp;&mdash;&nbsp; Maya, the staff worker</div>
+  <p class="flow-sub">Tuesday, 9:52 PM on her campus. Opens the app, sits with the day, chooses who sees what.</p>
+
+  <div class="rail">
+
+    <!-- MAYA / DASHBOARD -->
+    <div class="frame-wrap">
+      <div class="frame frame-desktop">
+        <div class="chrome-desktop">
+          <span class="chrome-dot red"></span>
+          <span class="chrome-dot yellow"></span>
+          <span class="chrome-dot green"></span>
+          <span class="chrome-url">maya.horizoncampus.app/dashboard</span>
+        </div>
+        <div class="body-d">
+          <div class="crumb">Maya&rsquo;s view &nbsp;/&nbsp; <b>Dashboard</b></div>
+          <div class="row-between mb-6">
+            <div>
+              <div class="xs">Tuesday, March 18</div>
+              <h2 class="hero-title">Good evening, Maya.</h2>
+              <div class="hero-sub">State University &mdash; North Campus &middot; 3rd year on staff</div>
+            </div>
+            <button class="btn primary btn-lg">Start check-in &rarr;</button>
+          </div>
+
+          <div class="card mb-8">
+            <div class="row-between">
+              <div class="card-label">Your week</div>
+              <span class="xs">Streak &middot; 4 days</span>
+            </div>
+            <div class="streak-grid mt-6">
+              <div class="streak-cell on">W</div>
+              <div class="streak-cell on">Th</div>
+              <div class="streak-cell on">F</div>
+              <div class="streak-cell on">S</div>
+              <div class="streak-cell">Su</div>
+              <div class="streak-cell">M</div>
+              <div class="streak-cell today">T</div>
+            </div>
+            <div class="kpi-row" style="margin-top:10px;">
+              <div class="kpi" style="padding:6px 8px;">
+                <div class="kpi-label">Students</div>
+                <div class="kpi-value">12</div>
+              </div>
+              <div class="kpi" style="padding:6px 8px;">
+                <div class="kpi-label">Loose</div>
+                <div class="kpi-value">30</div>
+              </div>
+              <div class="kpi" style="padding:6px 8px;">
+                <div class="kpi-label">Partners</div>
+                <div class="kpi-value">75</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sup-note mb-10">
+            <div class="sup-note-label">Note from your supervisor</div>
+            <div class="sup-note-quote">&ldquo;Thinking about you this week. Let&rsquo;s talk Friday about the scattered feeling.&rdquo;</div>
+            <div class="sup-note-from">David Okoye &middot; just now</div>
+          </div>
+
+          <div class="card-label">Recent entries</div>
+          <div class="entry-row">
+            <span class="pill win">Win</span>
+            <div class="entry-text">Priya opened up at dinner about feeling unseen since August. First real conversation.</div>
+            <span class="vis supporters active">Supporters</span>
+          </div>
+          <div class="entry-row">
+            <span class="pill challenge">Challenge</span>
+            <div class="entry-text">Scattered this week. Forgot to follow up with Chen.</div>
+            <span class="vis supervisor active">Supervisor</span>
+          </div>
+          <div class="entry-row">
+            <span class="pill general">General</span>
+            <div class="entry-text">Thinking about asking Sam to step in as a student leader.</div>
+            <span class="vis private active">Private</span>
+          </div>
+        </div>
+      </div>
+      <div class="frame-caption"><b>Dashboard</b>01 &middot; /dashboard</div>
+    </div>
+
+    <!-- ARROW -->
+    <div class="rail-arrow">
+      <div class="rail-arrow-glyph">&rarr;</div>
+      <div class="rail-arrow-label">Tap &ldquo;Start check-in&rdquo;</div>
+    </div>
+
+    <!-- MAYA / CHECK-IN (phone) -->
+    <div class="frame-wrap">
+      <div class="frame frame-phone">
+        <div class="chrome-phone-top">
+          <div class="chrome-phone-notch"></div>
+          <span class="chrome-phone-time">9:52</span>
+          <span class="chrome-phone-status">&bull;&bull;&bull;&bull;&bull; &nbsp; 5G</span>
+        </div>
+        <div class="phone-screen">
+          <div class="body-p">
+            <div class="crumb">Check-in</div>
+            <h2 class="hero-title">How are you, really?</h2>
+            <div class="hero-sub">Tuesday &middot; 9:52 PM</div>
+
+            <div class="conv mt-8">
+              <div class="turn">
+                <span class="avatar-bubble ai">AI</span>
+                <div class="bubble ai">Good evening, Maya. Before you close the day &mdash; how are you, really?</div>
+              </div>
+              <div class="turn me">
+                <div class="bubble me">Kind of scattered. But Priya opened up tonight. She finally let some of it out over dinner.</div>
+                <span class="avatar-bubble me">M</span>
+              </div>
+              <div class="turn">
+                <span class="avatar-bubble ai">AI</span>
+                <div class="bubble ai">That&rsquo;s a real moment. What did she share? How did you feel sitting across from her?</div>
+              </div>
+              <div class="turn me">
+                <div class="bubble me">She hasn&rsquo;t felt seen since she got here in August. I just listened. She needed that more than advice.</div>
+                <span class="avatar-bubble me">M</span>
+              </div>
+              <div class="turn">
+                <span class="avatar-bubble ai">AI</span>
+                <div class="bubble ai">Anything to follow up on? What about Chen?</div>
+              </div>
+            </div>
+
+            <div class="field mt-10">
+              <input type="text" placeholder="Type a reply&hellip;" />
+              <span class="send">Send</span>
+            </div>
+            <div class="xs mt-6" style="text-align:center;">When you&rsquo;re ready, tap <b>Finish</b>.</div>
+          </div>
+        </div>
+        <div class="chrome-phone-bottom"><div class="chrome-phone-bar"></div></div>
+      </div>
+      <div class="frame-caption"><b>Check-in</b>02 &middot; /checkin</div>
+    </div>
+
+    <!-- ARROW -->
+    <div class="rail-arrow">
+      <div class="rail-arrow-glyph">&rarr;</div>
+      <div class="rail-arrow-label">AI extracts entries</div>
+    </div>
+
+    <!-- MAYA / REVIEW (phone) -->
+    <div class="frame-wrap">
+      <div class="frame frame-phone">
+        <div class="chrome-phone-top">
+          <div class="chrome-phone-notch"></div>
+          <span class="chrome-phone-time">9:58</span>
+          <span class="chrome-phone-status">&bull;&bull;&bull;&bull;&bull; &nbsp; 5G</span>
+        </div>
+        <div class="phone-screen">
+          <div class="body-p">
+            <div class="crumb">Review</div>
+            <h2 class="hero-title">You choose who sees.</h2>
+            <div class="hero-sub">The hinge of the product.</div>
+
+            <div class="count-tiles mt-8">
+              <div class="count-tile">
+                <div class="count-label">Private</div>
+                <div class="count-value">1</div>
+                <div class="count-hint">Only you</div>
+              </div>
+              <div class="count-tile">
+                <div class="count-label">Sup.</div>
+                <div class="count-value">1</div>
+                <div class="count-hint">David</div>
+              </div>
+              <div class="count-tile">
+                <div class="count-label">Supp.</div>
+                <div class="count-value">3</div>
+                <div class="count-hint">Digest</div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="row-between">
+                <span class="pill win">Win</span>
+                <span class="vis supporters active">Supp.</span>
+              </div>
+              <div class="entry-text mt-6">Priya opened up at dinner about feeling unseen since August.</div>
+              <div class="review-pill-row">
+                <span class="vis private">Priv</span>
+                <span class="vis supervisor">Sup</span>
+                <span class="vis supporters active">Supp</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="row-between">
+                <span class="pill challenge">Challenge</span>
+                <span class="vis supervisor active">Sup</span>
+              </div>
+              <div class="entry-text mt-6">Scattered this week. Forgot to follow up with Chen. Over-committed.</div>
+              <div class="review-pill-row">
+                <span class="vis private">Priv</span>
+                <span class="vis supervisor active">Sup</span>
+                <span class="vis supporters">Supp</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="row-between">
+                <span class="pill general">General</span>
+                <span class="vis private active">Private</span>
+              </div>
+              <div class="entry-text mt-6">Thinking about asking Sam to step in as a student leader.</div>
+              <div class="review-pill-row">
+                <span class="vis private active">Priv</span>
+                <span class="vis supervisor">Sup</span>
+                <span class="vis supporters">Supp</span>
+              </div>
+            </div>
+
+            <button class="btn primary btn-lg mt-10" style="width:100%; justify-content:center;">Publish &rarr;</button>
+          </div>
+        </div>
+        <div class="chrome-phone-bottom"><div class="chrome-phone-bar"></div></div>
+      </div>
+      <div class="frame-caption"><b>Review &mdash; the hinge</b>03 &middot; /checkin/review</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- FLOW 02 &mdash; DAVID                                          -->
+<!-- ============================================================= -->
+<section class="flow">
+  <div class="flow-label">02 &nbsp;&mdash;&nbsp; David, the area director</div>
+  <p class="flow-sub">Thursday 7:12 AM, before his 1:1 with Maya. Scans the team, reads her feed, leaves a note.</p>
+
+  <div class="rail">
+
+    <!-- DAVID / TEAM OVERVIEW -->
+    <div class="frame-wrap">
+      <div class="frame frame-desktop">
+        <div class="chrome-desktop">
+          <span class="chrome-dot red"></span>
+          <span class="chrome-dot yellow"></span>
+          <span class="chrome-dot green"></span>
+          <span class="chrome-url">supervisor.horizoncampus.app</span>
+        </div>
+        <div class="body-d">
+          <div class="crumb">Supervisor view &nbsp;/&nbsp; <b>Team</b></div>
+          <div class="row-between mb-8">
+            <div>
+              <div class="xs">Thursday, March 20 &middot; 7:12 AM</div>
+              <h2 class="hero-title">Your team, David.</h2>
+              <div class="hero-sub">Horizon Campus Ministry &middot; 9 staff &middot; 6 campuses</div>
+            </div>
+          </div>
+
+          <div class="kpi-row">
+            <div class="kpi">
+              <div class="kpi-label">Checked in today</div>
+              <div class="kpi-value">4</div>
+              <div class="kpi-hint">of 9 staff</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Flagged</div>
+              <div class="kpi-value" style="color:#a41b3c;">2</div>
+              <div class="kpi-hint">need a look</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Quiet 3+ days</div>
+              <div class="kpi-value" style="color:#8a4a0a;">1</div>
+              <div class="kpi-hint">no check-in</div>
+            </div>
+          </div>
+
+          <div class="card-label mt-10">Worth a look this morning</div>
+          <div class="look-grid">
+            <div class="card">
+              <div class="row">
+                <span class="ava amber">ML</span>
+                <div style="flex:1;">
+                  <div class="roster-name">Maya Lin</div>
+                  <div class="roster-campus">State U &mdash; North</div>
+                </div>
+              </div>
+              <div class="mt-6"><span class="flag scattered">Flagged &ldquo;scattered&rdquo;</span></div>
+              <div class="xs mt-6">2 days running &middot; tap to open feed</div>
+            </div>
+            <div class="card">
+              <div class="row">
+                <span class="ava rose">GK</span>
+                <div style="flex:1;">
+                  <div class="roster-name">Grace Kim</div>
+                  <div class="roster-campus">Lakeside U</div>
+                </div>
+              </div>
+              <div class="mt-6"><span class="flag quiet">No check-in 5 days</span></div>
+              <div class="xs mt-6">Last: Saturday 9:12 PM</div>
+            </div>
+          </div>
+
+          <div class="card-label mt-10">Everyone</div>
+          <div class="roster-row">
+            <span class="ava amber">ML</span>
+            <div>
+              <div class="roster-name">Maya Lin</div>
+              <div class="roster-campus">State U &mdash; North</div>
+            </div>
+            <div class="roster-tail">
+              <span class="flag streak">4-day streak</span>
+              <span class="xs">Yesterday</span>
+              <span class="flag scattered">Scattered</span>
+            </div>
+          </div>
+          <div class="roster-row">
+            <span class="ava green">JA</span>
+            <div>
+              <div class="roster-name">Jordan Ayala</div>
+              <div class="roster-campus">Metro Tech</div>
+            </div>
+            <div class="roster-tail">
+              <span class="flag streak">12-day streak</span>
+              <span class="xs">Today</span>
+              <span class="flag strong">Strong week</span>
+            </div>
+          </div>
+          <div class="roster-row">
+            <span class="ava rose">GK</span>
+            <div>
+              <div class="roster-name">Grace Kim</div>
+              <div class="roster-campus">Lakeside U</div>
+            </div>
+            <div class="roster-tail">
+              <span class="xs muted">no streak</span>
+              <span class="xs">5d ago</span>
+              <span class="flag quiet">Quiet</span>
+            </div>
+          </div>
+          <div class="roster-row">
+            <span class="ava neutral">TA</span>
+            <div>
+              <div class="roster-name">Tobi Adeleke</div>
+              <div class="roster-campus">Riverwood College</div>
+            </div>
+            <div class="roster-tail">
+              <span class="flag streak">6-day streak</span>
+              <span class="xs">Today</span>
+              <span class="xs muted">&mdash;</span>
+            </div>
+          </div>
+          <div class="roster-row">
+            <span class="ava blue">SO</span>
+            <div>
+              <div class="roster-name">Sam Oduya</div>
+              <div class="roster-campus">Eastfield U</div>
+            </div>
+            <div class="roster-tail">
+              <span class="flag streak">2-day streak</span>
+              <span class="xs">2d ago</span>
+              <span class="flag new">New on staff</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-caption"><b>Team overview</b>04 &middot; /supervisor</div>
+    </div>
+
+    <!-- ARROW -->
+    <div class="rail-arrow">
+      <div class="rail-arrow-glyph">&rarr;</div>
+      <div class="rail-arrow-label">Opens Maya&rsquo;s feed</div>
+    </div>
+
+    <!-- DAVID / MAYA FEED -->
+    <div class="frame-wrap">
+      <div class="frame frame-desktop">
+        <div class="chrome-desktop">
+          <span class="chrome-dot red"></span>
+          <span class="chrome-dot yellow"></span>
+          <span class="chrome-dot green"></span>
+          <span class="chrome-url">supervisor.horizoncampus.app/maya-lin</span>
+        </div>
+        <div class="body-d">
+          <div class="crumb">Supervisor view &nbsp;/&nbsp; <b>Maya Lin</b></div>
+          <div class="row-between">
+            <div style="flex:1;">
+              <div class="xs">State U &mdash; North Campus &middot; 3rd year on staff</div>
+              <h2 class="hero-title">Maya Lin</h2>
+              <div class="hero-sub">You see her supervisor-only entries and supporter-tagged entries. Private stays with her.</div>
+            </div>
+            <div class="card" style="padding:8px 10px;">
+              <div class="kpi-label">Last check-in</div>
+              <div class="strong" style="font-size:11px;">Yesterday, 9:56 PM</div>
+            </div>
+          </div>
+
+          <div class="card-label mt-12">Tuesday&rsquo;s entries &mdash; visible to you</div>
+
+          <div class="card">
+            <span class="pill win">Win</span>
+            <div class="entry-text mt-6">Priya (2nd-yr MS from India) opened up at dinner about feeling unseen since arriving in August. First real conversation in three months.</div>
+          </div>
+
+          <div class="card">
+            <span class="pill prayer">Prayer</span>
+            <div class="entry-text mt-6">Pray for Priya as she processes loneliness, and for the trust she showed tonight.</div>
+          </div>
+
+          <div class="card entry-highlight">
+            <div class="row">
+              <span class="pill challenge">Challenge</span>
+              <span class="vis supervisor active">Supervisor only</span>
+            </div>
+            <div class="entry-text mt-6">Scattered this week. Forgot to follow up with Chen. Worried I&rsquo;m letting students slip because I&rsquo;m over-committed.</div>
+          </div>
+
+          <div class="card">
+            <span class="pill need">Need</span>
+            <div class="entry-text mt-6">Priya needs a ride from the airport Saturday at midnight.</div>
+          </div>
+
+          <div class="composer mt-10">
+            <div class="composer-label">Leave a note for Maya</div>
+            <div class="composer-hint">Attached to this check-in. Visible only to her.</div>
+            <div class="textarea">Want to talk Friday? Proud of how you showed up for Priya.</div>
+            <div class="row-between mt-6">
+              <span class="xs" style="color:#b6a988;">Arrives as a soft notification.</span>
+              <button class="btn primary">Send note</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-caption"><b>Maya&rsquo;s feed</b>05 &middot; /supervisor/maya-lin</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- FLOW 03 &mdash; LINDA                                          -->
+<!-- ============================================================= -->
+<section class="flow">
+  <div class="flow-label">03 &nbsp;&mdash;&nbsp; Linda, the ministry partner</div>
+  <p class="flow-sub">Monday, 8:02 AM before her commute. Reads the digest Maya&rsquo;s supporter-tagged entries composed themselves into.</p>
+
+  <div class="rail">
+
+    <!-- LINDA / INBOX -->
+    <div class="frame-wrap">
+      <div class="frame frame-desktop" style="width:620px;">
+        <div class="chrome-desktop">
+          <span class="chrome-dot red"></span>
+          <span class="chrome-dot yellow"></span>
+          <span class="chrome-dot green"></span>
+          <span class="chrome-url">mail.google.com &mdash; Linda&rsquo;s inbox</span>
+        </div>
+        <div class="body-d">
+          <div class="crumb">Partner view &nbsp;/&nbsp; <b>Monday inbox</b></div>
+          <div class="row-between mb-8">
+            <div>
+              <div class="xs">Monday, March 24 &middot; 8:02 AM</div>
+              <h2 class="hero-title">Linda&rsquo;s inbox.</h2>
+              <div class="hero-sub">The digest was written from Maya&rsquo;s <b style="color:#b8651a;">supporter-tagged</b> entries only &mdash; nothing from the supervisor column is here.</div>
+            </div>
+          </div>
+
+          <div class="inbox">
+            <div class="inbox-sidebar">
+              <div class="inbox-label">Inbox <span class="inbox-badge">2 new</span></div>
+              <div class="inbox-item active">
+                <div class="inbox-from">Maya Lin <span class="when">8:02a</span></div>
+                <div class="inbox-subject">This week on campus</div>
+                <div class="inbox-snippet">Friends, a short one this week&hellip;</div>
+              </div>
+              <div class="inbox-item">
+                <div class="inbox-from">Your Bank <span class="when">7:14a</span></div>
+                <div class="inbox-subject">Statement ready for March</div>
+                <div class="inbox-snippet">Your monthly statement&hellip;</div>
+              </div>
+              <div class="inbox-item">
+                <div class="inbox-from">Small Group <span class="when">Sun</span></div>
+                <div class="inbox-subject">Re: Dessert Sunday?</div>
+                <div class="inbox-snippet">I can bring something&hellip;</div>
+              </div>
+              <div class="inbox-item">
+                <div class="inbox-from">NYT Morning <span class="when">Sun</span></div>
+                <div class="inbox-subject">What to watch this week</div>
+                <div class="inbox-snippet">Good morning. Today we&hellip;</div>
+              </div>
+            </div>
+            <div class="inbox-body">
+              <div class="inbox-subject-line">This week on campus &mdash; Priya, and a ride I need</div>
+              <div class="inbox-meta-row">
+                <span class="ava ava-sm amber">ML</span>
+                <div class="inbox-meta">
+                  <div class="strong">Maya Lin</div>
+                  <div class="email">&lt;maya@horizoncampus.org&gt; &middot; to Linda Park &middot; Mon 8:02 AM</div>
+                </div>
+              </div>
+              <p>Friends, a short one this week but a real one.</p>
+              <p>Tuesday night over dinner, a student named Priya &mdash; a second-year master&rsquo;s student from India &mdash; opened up for the first time since arriving in August. She told me she hasn&rsquo;t felt seen here. We didn&rsquo;t solve anything. We just sat with it.</p>
+              <p>Keep praying for her. The trust she showed me on Tuesday is fragile and precious. Two practical things: Priya needs a ride from the airport Saturday at midnight &mdash; reply if you or anyone in your church could cover it. And pray for rhythm for me; I&rsquo;m feeling a little scattered and want to be present with students, not half-here.</p>
+              <div class="prayer-box">
+                <h4>Pray with me this week</h4>
+                <ul>
+                  <li>For Priya &mdash; that the door she opened Tuesday stays open.</li>
+                  <li>For an airport ride Saturday at midnight.</li>
+                  <li>For focus and rhythm in a scattered week.</li>
+                </ul>
+              </div>
+              <p>Thank you for being in this with me. You are not just funding ministry &mdash; you are doing it.</p>
+              <p class="small">In the work with you,<br /><b>Maya</b></p>
+            </div>
+          </div>
+
+          <div class="recon-row">
+            <div class="recon-card dark">
+              <h4>What went into this email</h4>
+              <div class="recon-line">&bull; The win about Priya opening up &mdash; <span style="color:#e4c670;">supporters</span></div>
+              <div class="recon-line">&bull; The prayer request for Priya &mdash; <span style="color:#e4c670;">supporters</span></div>
+              <div class="recon-line">&bull; The airport-ride need &mdash; <span style="color:#e4c670;">supporters</span></div>
+              <div class="small" style="color:#b6a988;margin-top:6px;">Maya wrote nothing extra. The digest wrote itself from what she already chose to share.</div>
+            </div>
+            <div class="recon-card light">
+              <h4>What did <i>not</i> go in</h4>
+              <div class="recon-line">&bull; &ldquo;Feeling scattered&rdquo; &mdash; <span style="color:#1e3a8a;">supervisor only</span></div>
+              <div class="recon-line">&bull; Thinking about Sam as student leader &mdash; <span style="color:#1f1c18;">private</span></div>
+              <div class="small" style="margin-top:6px;">Linda never sees what Maya did not mark for her. That is the promise.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="frame-caption"><b>Monday digest inbox</b>06 &middot; inbox preview + reconciliation</div>
+    </div>
+
+  </div>
+</section>
+
+<p style="font-size:11px;color:#8a7b66;text-align:center;margin-top:64px;">
+  Mockup artboard &middot; Missionary Accountability for international student ministry &middot; 6 frames, 3 flows, 1 hinge.
+</p>
+
+</body>
+</html>
